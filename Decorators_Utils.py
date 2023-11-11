@@ -21,7 +21,8 @@ def timer(func):
 # 处理废弃函数
 def deprecated(func):
     def wrapper(*args, **kwargs):
-        warnings.warn(f"{func.__name__} is deprecated and will be removed in future.", DeprecationWarning)
+        out_wrap = r'is deprecated and will be removed in future.'
+        warnings.warn(f"{func.__name__} {out_wrap}", DeprecationWarning)
         return func(*args, **kwargs)
     return wrapper
 
@@ -46,7 +47,8 @@ def retry(max_attempts, delay):
                 try:
                     return func(*args, **kwargs)
                 except Exception as e:
-                    print(f"Attempt {attempts + 1} failed. Retrying in {delay} seconds.")
+                    info = f"Attempt {attempts + 1} failed. Retrying in {delay} seconds."
+                    print(info)
                     print(f"{func.__name__} : {e}")
                 attempts += 1
                 time.sleep(delay)
@@ -74,9 +76,11 @@ class Log_Rec():
         if not os.path.exists(log_path):
             os.makedirs(log_path)
         if self._file_mode:
-            self._file_log = logger.add(f'log/runtime_{dt01.year}-{dt01.month}-{dt01.day}.log',
-                                        rotation='00:00',
-                                        retention='10 days')
+            self._file_log = logger.add(
+                f'log/runtime_{dt01.year}-{dt01.month}-{dt01.day}.log',
+                rotation='00:00',
+                retention='10 days'
+                )
         else:
             self._file_log = None
 
@@ -97,5 +101,13 @@ def test_fun(a=0, b=1):
     print(c)
 
 
+# 测试计时
+@timer
+def test_record_runtime():
+    s = 0
+    for i in range(100000):
+        s += 1
+
+
 if __name__ == '__main__':
-    test_fun()
+    test_record_runtime()
