@@ -3,6 +3,7 @@
 - 针对Python3语言中常用方法总结，方便快速部署  
 - 常用库的使用和举例  
 - 功能更容易迁移到其他项目中 
+- 每种方法给出简易用例，方便应用在其他项目中并易于扩展
 
 ### 依赖库安装命令
 ```shell
@@ -35,4 +36,35 @@ def test_record_runtime():
 
 if __name__ == '__main__':
     test_record_runtime()
+```
+
+- 文件操作(举例)
+```python
+import os
+import shutil
+from tqdm import tqdm
+from enum import Enum
+
+
+class File_Type(Enum):
+    ...
+
+
+class File_OP():
+    ...
+
+
+# 测试一
+def test_findfile():
+    ...
+
+
+# 测试二
+def test_copyfiles():
+    ...
+
+
+if __name__ == '__main__':
+    test_findfile()
+    test_copyfiles()
 ```
