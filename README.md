@@ -70,5 +70,5 @@ if __name__ == '__main__':
 ```
 
 ### 记在最后:
-- 项目代码管理：以 git 方式管理，同步代码更方便
-- 关于markdown：.md 是一个很方便的结构说明文档，项目说明中需要采用
+- 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
+- 关于markdown：.md 是一个很方便的结构说明文档，项目说明中需要采用。
