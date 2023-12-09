@@ -91,8 +91,8 @@ def heic_to_jpg(img_item, img_source, livp_to_jpg_dir):
 
 # 批处理
 def Batch_heic_to_jpg():
-    heic_dir = r'C:\Users\zhangxige\Desktop\结婚照\满意视频素材'
-    heic_to_jpg_dir = r'C:\Users\zhangxige\Desktop\结婚照\满意视频素材'
+    heic_dir = r'C:\test'
+    heic_to_jpg_dir = r'C:\test'
 
     img_list = os.listdir(heic_dir)
     for img_item in tqdm(img_list):
@@ -106,8 +106,8 @@ def Batch_heic_to_jpg():
 
 # 批处理
 def Batch_livp_to_jpg():
-    livp_dir = r'C:\Users\zhangxige\Downloads\来自：iPhone'
-    livp_to_jpg_dir = r'C:\Users\zhangxige\Downloads\Iphone'
+    livp_dir = r'C:\test'
+    livp_to_jpg_dir = r'C:\test'
 
     img_list = os.listdir(livp_dir)
     for img_item in tqdm(img_list):
