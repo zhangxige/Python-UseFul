@@ -68,3 +68,7 @@ if __name__ == '__main__':
     test_findfile()
     test_copyfiles()
 ```
+
+### 记在最后:
+- 项目代码管理：以 git 方式管理，同步代码更方便
+- 关于markdown：.md 是一个很方便的结构说明文档，项目说明中需要采用
