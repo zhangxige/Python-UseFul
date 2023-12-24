@@ -27,10 +27,23 @@ git remote -v
 - 向本地仓库添加文件
 ``` Git bash
 git add sommefile/folder
+e.g.
+$ git add Git_cmd/
 ```
 
 - 向本地仓库添加文件
 ``` Git bash
 git commit -m "someinfo"
 ```
+
+- 向远程仓库推送分支
+``` Git bash
+git push -u Python-UseFul "main"
+```
+
+- 常见问题汇总
+
+#### 1、[git中出现error: Your local changes to the following files would be overwritten by merge的解决方案](https://blog.csdn.net/IT_SoftEngineer/article/details/107133284)
+
+#### 2、[git中Updates were rejected because the tip of your current branch is behind解决方案](https://blog.csdn.net/IT_SoftEngineer/article/details/107133313)
 
