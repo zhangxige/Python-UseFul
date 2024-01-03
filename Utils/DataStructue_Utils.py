@@ -66,6 +66,14 @@ def test_decimal():
     print(result)
 
 
+def test_using_next():
+    a = range(1, 100)
+    expr = (i for i in a if i % 2 == 0)
+    print(next(expr))
+    print(next(expr))
+
+
 if __name__ == "__main__":
     # res = test_decimal()
+    test_using_next()
     pass
