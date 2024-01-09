@@ -221,5 +221,4 @@ def sqlite3_test():
 
 
 if __name__ == "__main__":
-    res = sqlite3_test()
-
+    pass

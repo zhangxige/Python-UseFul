@@ -73,7 +73,41 @@ def test_using_next():
     print(next(expr))
 
 
+def Better_Ways_Dataclass():
+    from collections import namedtuple
+    Player = namedtuple('Player',
+                        ['name', 'number', 'position', 'age', 'grade'])
+    jordan = Player('Micheal Jordan', 23, 'PG', 29, 'S+')
+    print(jordan)
+
+    from dataclasses import dataclass, field
+    from typing import Any, List
+
+    @dataclass(order=True)
+    class Player:
+        name: str
+        number: int
+        position: str
+        age: int
+        grade: str
+        info: Any = 'abc'
+
+    james = Player('Lebron James', 23, 'SF', 25, 'S')
+    paul = Player('pauls', 23, 'SF', 25, 'S')
+    james.position = 'changge'
+    james.number = '12345'
+    print(paul == james)
+    print(paul < james)
+
+    class Team:
+        name: str
+        players: List[Player] = field(default_factory=lambda: [james])
+    myteam = Team()
+    print(myteam)
+    print(james)
+
+
 if __name__ == "__main__":
     # res = test_decimal()
-    test_using_next()
+    Better_Ways_Dataclass()
     pass

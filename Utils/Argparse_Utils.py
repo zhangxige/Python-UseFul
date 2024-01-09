@@ -12,6 +12,7 @@ def argparse_test():
     parser.add_argument('-v', '--verbose', action='store_true')  # on/off flag
     parser.add_argument('--epochs', type=int, default=30)
     parser.add_argument('--batch', type=int, default=4)
+    parser.add_argument('--exist-ok', action='store_true', help='existing key')
     args = parser.parse_args()
     print(args.filename, args.count, args.verbose)
 
