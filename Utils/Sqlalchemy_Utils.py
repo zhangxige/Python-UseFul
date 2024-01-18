@@ -23,7 +23,9 @@ class User(Base):
     addresses: Mapped[List["Address"]] = relationship(back_populates="user")
 
     def __repr__(self) -> str:
-        return f"""User(id={self.id!r},name={self.name!r},fullname={self.fullname!r})"""
+        return (f"""User(id={self.id!r},
+                 name={self.name!r},
+                 fullname={self.fullname!r})""")
 
 
 # user internet information
@@ -117,7 +119,8 @@ def Sqlalchemy_UpdateData():
 
     # 更新
     with session as session:
-        session.query(User).filter_by(name='ed').update({User.fullname: 'Paul C'})
+        n = 'Paul C'
+        session.query(User).filter_by(name='ed').update({User.fullname: n})
         session.commit()
 
 

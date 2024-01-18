@@ -2,6 +2,7 @@ from operator import itemgetter
 from functools import cmp_to_key
 from pprint import pprint
 from decimal import Decimal
+from textwrap import dedent
 
 
 # 常用排序方法
@@ -107,7 +108,16 @@ def Better_Ways_Dataclass():
     print(james)
 
 
+def test_printtext():
+    a = dedent("""
+        -- list 1
+        -- list 2
+        -- list 3
+        """)
+    print(a)
+
+
 if __name__ == "__main__":
     # res = test_decimal()
-    Better_Ways_Dataclass()
+    test_printtext()
     pass
