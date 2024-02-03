@@ -1,8 +1,10 @@
 import pprint
+import unittest
 from typing import List
 from typing import Optional
 
-from sqlalchemy import create_engine, String, ForeignKey
+from sqlalchemy import create_engine, String, ForeignKey, inspect
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Mapped
@@ -170,9 +172,24 @@ class Sqlalchemy_Manager:
     def __repr__(self) -> str:
         return f'mydatabase : {self._database}'
 
+    def _reconnectdb(self):
+        self._engine = create_engine(self._database, echo=True)
+
     # 初始化创建所有表
     def Create_Tables(self, tablebase: DeclarativeBase):
         tablebase.metadata.create_all(self._engine)
+        self._reconnectdb()
+
+    # 查询数据库中有哪些表
+    def Inquery_DetailsTables(self):
+        inspector = inspect(self._engine)
+        instbls = inspector.get_table_names()
+        return instbls
+
+    # 删除表
+    def Drop_Table(self, tablename: DeclarativeBase):
+        tablename.metadata.drop_all(self._engine)
+        self._reconnectdb()
 
     # 增
     def Insert_Data(self, insert_value):
@@ -181,20 +198,20 @@ class Sqlalchemy_Manager:
             session.commit()
 
     # 删
-    def Delet_Data(self, table_name, condition):
+    def Delet_Data(self, table_name: DeclarativeBase, condition: dict):
         with self._session() as session:
             res = session.query(table_name).filter_by(**condition)
             res.delete()
             session.commit()
 
     # 改
-    def Update_Data(self, tabel_name, filter_cond: dict, new_v: dict):
+    def Update_Data(self, tabel_name: DeclarativeBase, filter_cond: dict, new_v: dict):
         with self._session() as session:
             session.query(tabel_name).filter_by(**filter_cond).update(new_v)
             session.commit()
 
     # 查
-    def Inquire_Data(self, table_name):
+    def Inquire_Data(self, table_name: DeclarativeBase):
         res = None
         with self._session() as session:
             res = session.query(table_name)
@@ -203,32 +220,52 @@ class Sqlalchemy_Manager:
         return res
 
 
-# test_case
-def test_():
-    db_api = Sqlalchemy_Manager()
-    db_api.Create_Tables(BaseSoftWare)
-    testdata1 = SoftWare(
-        name='softwarename1',
-        fullname='fullname1',
-        version='1.0',
-        address='qwzw'
-        )
-    testdata2 = UsedSence(email_address='address1')
-    filter_cond = {'name': 'softwarename1'}
-    update_dict = {SoftWare.fullname: 'new_name',
-                   SoftWare.version: '2.0'}
+# 单元测试
+class TestSqlalchemy_Manager(unittest.TestCase):
+    # preparation init test
+    def setUp(self):
+        # 每一个测试前都会执行
+        print('test begin!')
+        self.db_api = Sqlalchemy_Manager()
 
-    db_api.Insert_Data(testdata1)
-    db_api.Inquire_Data(SoftWare)
-    db_api.Update_Data(SoftWare, filter_cond, update_dict)
-    db_api.Inquire_Data(SoftWare)
+    def tearDown(self):
+        # 每一个测试后都会执行
+        print('end test!')
+
+    def test_createtable(self):
+        self.db_api.Create_Tables(BaseSoftWare)
+
+    def test_drop_and_query_table(self):
+        self.db_api.Create_Tables(Base)
+        r = self.db_api.Inquery_DetailsTables()
+        print(r)
+        self.db_api.Drop_Table(Address)
+        r = self.db_api.Inquery_DetailsTables()
+        print(r)
+
+    def test_insertdata(self):
+        testdata1 = SoftWare(
+            name='softwarename1',
+            fullname='fullname1',
+            version='1.0',
+            address='qwzw'
+            )
+        testdata2 = UsedSence(email_address='address1')
+        self.db_api.Insert_Data(testdata1)
+        self.db_api.Insert_Data(testdata2)
+     
+    def test_updatedata(self):
+        filter_cond = {'name': 'softwarename1'}
+        update_dict = {
+            SoftWare.fullname: 'new_name',
+            SoftWare.version: '2.0'
+        }
+        self.db_api.Update_Data(SoftWare, filter_cond, update_dict)
+
+    def test_querydata(self):
+        self.db_api.Inquire_Data(UsedSence)
+        self.db_api.Inquire_Data(SoftWare)
 
 
 if __name__ == "__main__":
-    # Sqlalchemy_CreatTable()
-    # Sqlalchemy_Insert()
-    # Sqlalchemy_UpdateData()
-    # Sqlalchemy_QueryData()
-    # Sqlalchemy_DeleteData()
-    # Sqlalchemy_QueryData()
-    test_()
+    unittest.main()
