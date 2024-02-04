@@ -1,10 +1,8 @@
-import pprint
 import unittest
 from typing import List
 from typing import Optional
 
 from sqlalchemy import create_engine, String, ForeignKey, inspect
-from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Mapped
@@ -41,90 +39,6 @@ class Address(Base):
 
     def __repr__(self) -> str:
         return f"Address(id={self.id!r}, email_address={self.email_address!r})"
-
-
-# create table
-def Sqlalchemy_CreatTable():
-    engine = create_engine('sqlite:///Player.db', echo=True)
-    # 创建表
-    Base.metadata.create_all(engine)
-
-
-# insert data
-def Sqlalchemy_Insert():
-    engine = create_engine('sqlite:///Player.db', echo=True)
-    # 创建会话
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    # 添加数据
-    ed_user = User(name='ed', fullname='Ed Jones')
-    with session as session:
-        session.add(ed_user)
-        session.commit()
-
-    # 添加多条记录
-    with session as session:
-        session.add_all([
-            User(name='wendy', fullname='Wendy Williams'),
-            User(name='mary', fullname='Mary Contrary'),
-            User(name='fred', fullname='Fred Flinstone')
-        ])
-        session.commit()
-
-
-# 删除
-def Sqlalchemy_DeleteData():
-    engine = create_engine('sqlite:///Player.db', echo=True)
-    # 创建会话
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    # 查询
-    with session as session:
-        res = session.query(User).filter_by(name='ed')
-        for l_info in res:
-            print(l_info)
-
-    # 删除
-    with session as session:
-        res = session.query(User).filter_by(name='wendy')
-        res.delete()
-        session.commit()
-
-    # 查询
-    with session as session:
-        res = session.query(User)
-        for l_info in res:
-            print(l_info)
-
-
-# 查询
-def Sqlalchemy_QueryData():
-    engine = create_engine('sqlite:///Player.db', echo=False)
-    # 创建会话
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    # 查询
-    with session as session:
-        res = session.query(User)
-        for l_info in res:
-            print(l_info)
-
-
-# 更新
-def Sqlalchemy_UpdateData():
-    engine = create_engine('sqlite:///Player.db', echo=True)
-    # 创建会话
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    # 更新
-    with session as session:
-        n = 'Paul C'
-        session.query(User).filter_by(name='ed').update({User.fullname: n})
-        session.commit()
 
 
 # ============================  sepqrate ======================================
@@ -253,7 +167,7 @@ class TestSqlalchemy_Manager(unittest.TestCase):
         testdata2 = UsedSence(email_address='address1')
         self.db_api.Insert_Data(testdata1)
         self.db_api.Insert_Data(testdata2)
-     
+
     def test_updatedata(self):
         filter_cond = {'name': 'softwarename1'}
         update_dict = {
@@ -261,6 +175,10 @@ class TestSqlalchemy_Manager(unittest.TestCase):
             SoftWare.version: '2.0'
         }
         self.db_api.Update_Data(SoftWare, filter_cond, update_dict)
+
+    def test_deletedata(self):
+        filter_cond = {'name': 'softwarename1'}
+        self.db_api.Delet_Data(SoftWare, filter_cond)
 
     def test_querydata(self):
         self.db_api.Inquire_Data(UsedSence)
