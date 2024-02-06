@@ -117,7 +117,42 @@ def test_printtext():
     print(a)
 
 
+def test_functiontools_lru_cache():
+    from functools import lru_cache
+
+    @lru_cache(maxsize=30)  # maxsize参数告诉lru_cache缓存最近多少个返回值
+    def fib(n):
+        if n < 2:
+            return n
+        return fib(n-1) + fib(n-2)
+    print([fib(n) for n in range(100)])
+    fib.cache_clear()
+
+
+def test_map_filter():
+    def map_fun(x):
+        return x
+
+    def filter_fun(x):
+        return x % 2 == 0
+
+    def fibnancc_fun(x):
+        i = 0
+        a, b = 1, 1
+        while i < x:
+            yield a
+            a = a + b
+            a, b = b, a
+            i += 1
+
+    genrate = fibnancc_fun(10)
+    f = list(map(map_fun, genrate))
+    print(f)
+    f = list(filter(filter_fun, f))
+    print(f)
+
+
 if __name__ == "__main__":
     # res = test_decimal()
-    test_printtext()
+    test_map_filter()
     pass
