@@ -175,7 +175,175 @@ def test_dataclass():
     print(nyk)
 
 
+def test_namedtuple():
+    from collections import namedtuple
+
+    # 定义一个具名元组类
+    Person = namedtuple("Person", ["name", "age", "gender"])
+
+    # 创建一个 Person 类的实例
+    person = Person("Alice", 28, "female")
+
+    # 访问某个属性
+    print(person.name)     # 输出：Alice
+    print(person.age)      # 输出：28
+    print(person.gender)   # 输出：female
+
+    # 通过索引访问属性
+    print(person[0])       # 输出：Alice
+    print(person[1])       # 输出：28
+    print(person[2])       # 输出：female
+
+    # 获取某个属性的值
+    print(getattr(person, "name"))    # 输出：Alice
+
+    # 将具名元组对象转换成字典对象
+    person_dict = person._asdict()
+    print(person_dict)
+    # 输出：{'name': 'Alice', 'age': 28, 'gender': 'female'}
+
+    # 通过字典创建具名元组类的实例
+    person_dict = {"name": "Bob", "age": 30, "gender": "male"}
+    person2 = Person(**person_dict)
+    print(person2)
+    # 输出：Person(name='Bob', age=30, gender='male')
+
+
+def test_deque():
+    from collections import deque
+
+    # 创建一个空的 deque 队列
+    d = deque()
+    print(d)  # deque([])
+
+    # 可以通过传入一个可迭代对象，创建一个 deque 队列
+    d1 = deque([1, 2, 3, 4, 5])
+    print(d1)    # deque([1, 2, 3, 4, 5])
+
+    # 在双端队列的左边添加元素
+    d.appendleft(0)
+    print(d)     # deque([0])
+
+    # 在双端队列的右边添加元素
+    d.append(6)
+    print(d)     # deque([0, 6])
+
+    # 扩展双端队列
+    d.extend([7, 8, 9])
+    print(d)     # deque([0, 6, 7, 8, 9])
+
+    # 扩展双端队列，从左边添加元素
+    d.extendleft([-1, -2, -3])
+    print(d)     # deque([-3, -2, -1, 0, 6, 7, 8, 9])
+
+    # 删除最左边的元素
+    d.popleft()  # -3
+    print(d)   # deque([-2, -1, 0, 6, 7, 8, 9])
+
+    # 删除最右边的元素
+    d.pop()    # 9
+    print(d)   # deque([-2, -1, 0, 6, 7, 8])
+
+    # 查找元素并返回所在位置的索引
+    print(d.index(-1))   # 1
+
+    # 返回元素出现的次数
+    print(d.count(3))    # 0
+
+    # 反转 deque 队列
+    d.reverse()
+    print(d)    # deque([8, 7, 6, 0, -1, -2])
+
+
+def test_chainmap():
+    from collections import ChainMap
+
+    # 创建多个字典
+    dict1 = {"a": "apple", "b": "banana"}
+    dict2 = {"c": "cat", "d": "dog"}
+    dict3 = {"e": "elephant", "f": "fox"}
+
+    # 使用 ChainMap 将多个字典合并
+    ch_map = ChainMap(dict1, dict2, dict3)
+
+    # 查找某个键对应的值
+    print(ch_map.get("a"))
+    print(ch_map.get("c"))
+    print(ch_map.get("e"))
+
+    # 修改某个键对应的值
+    dict1["a"] = "ant"
+    print(ch_map.get("a"))
+
+    # 新增某个键值对
+    dict2["g"] = "goose"
+    print(ch_map)
+
+    # 组合链
+    dict4 = {"a": "apple_new", "d": "dog_new"}
+    ch_map2 = ch_map.new_child(dict4)
+    print(ch_map2)
+    print(ch_map2.get('a'))
+
+
+def test_counter():
+    from collections import Counter
+
+    # 使用 Counter 对当前列表中的元素进行计数
+    lst = ["apple", "banana", "apple", "apple", "orange", "banana", "pear"]
+    cnt = Counter(lst)
+    print(cnt)   # Counter({'apple': 3, 'banana': 2, 'orange': 1, 'pear': 1})
+
+    # 查看某个元素在给定的列表中出现的次数
+    print(cnt["apple"])   # 3
+    print(cnt["orange"])  # 1
+    print(cnt["pear"])    # 1
+    print(cnt["grape"])   # 0
+
+    # 给 Counter 添加元素
+    cnt["grape"] = 2
+    print(cnt)
+    # Counter({'apple': 3, 'banana': 2, 'grape': 2, 'orange': 1, 'pear': 1})
+
+    # 获取计数结果中的最高频元素，并返回出现的次数
+    print(cnt.most_common(1))  # [('apple', 3)]
+    print(cnt.most_common(2))  # [('apple', 3), ('banana', 2)]
+
+    # 已知计数结果字典，获取对应的键
+    print(list(cnt.elements()))
+
+
+def test_defaultdict():
+    from collections import defaultdict
+
+    # 创建一个 defaultdict 对象
+    dd = defaultdict(int)
+
+    # 往 defaultdict 中添加元素
+    dd["a"] = 1
+    dd["b"] = 2
+    dd["c"] = 3
+
+    print(dd)  # defaultdict(<class 'int'>, {'a': 1, 'b': 2, 'c': 3})
+    print(dd["d"])  # 0
+
+    # 利用 lambda 函数作为工厂函数来创建 defaultdict
+    dd2 = defaultdict(lambda: "None")
+
+    dd2["a"] = "apple"
+    dd2["b"] = "banana"
+
+    print(dd2)
+    print(dd2["c"])  # None
+
+    dd3 = defaultdict(lambda: [])
+    dd3["a"] = ["apple"]
+    dd3["b"] = ["banana"]
+    dd3['c']
+    print(dd3)  # None
+
+
 if __name__ == "__main__":
     # res = test_decimal()
-    test_dataclass()
+    test_defaultdict()
     pass
