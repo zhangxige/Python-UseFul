@@ -152,7 +152,30 @@ def test_map_filter():
     print(f)
 
 
+def test_dataclass():
+    from dataclasses import dataclass
+    from dataclasses import field
+
+    @dataclass
+    class Player:
+        name: str
+        number: int
+        position: set
+        age: int
+        grade: float
+
+    james = Player('james', 1, 'abc', 10, 20)
+
+    @dataclass
+    class Team:
+        name: str
+        players: list[Player] = field(default_factory=lambda: [james])
+
+    nyk = Team('New York Knicks')
+    print(nyk)
+
+
 if __name__ == "__main__":
     # res = test_decimal()
-    test_map_filter()
+    test_dataclass()
     pass
