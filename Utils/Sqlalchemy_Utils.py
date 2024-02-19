@@ -2,6 +2,7 @@ import unittest
 from typing import List
 from typing import Optional
 
+import numpy as np
 from sqlalchemy import create_engine, String, ForeignKey, inspect
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import sessionmaker
@@ -42,6 +43,14 @@ class Address(Base):
 
 
 # ============================  sepqrate ======================================
+# 如果要插入 np.array 可转化为bytes (string) 插入
+def nparray_to_bytes(a: np.array):
+    return a.tobytes()
+
+
+# bytes 可转化为 np.array
+def bytes_to_nparray(a, ori_shape=(4, 2048)):
+    return np.frombuffer(a, dtype=np.float32).reshape(ori_shape)
 
 
 # software table base calss
@@ -78,8 +87,9 @@ class UsedSence(BaseSoftWare):
 #  数据库管理类
 class Sqlalchemy_Manager:
     def __init__(self, databese=r'sqlite:///Player.db') -> None:
+        self._Echo = True
         self._database = databese
-        self._engine = create_engine(self._database, echo=True)
+        self._engine = create_engine(self._database, echo=self._Echo)
         # 创建会话
         self._session = sessionmaker(bind=self._engine)
 
@@ -87,7 +97,7 @@ class Sqlalchemy_Manager:
         return f'mydatabase : {self._database}'
 
     def _reconnectdb(self):
-        self._engine = create_engine(self._database, echo=True)
+        self._engine = create_engine(self._database, echo=self._Echo)
 
     # 初始化创建所有表
     def Create_Tables(self, tablebase: DeclarativeBase):
@@ -124,13 +134,24 @@ class Sqlalchemy_Manager:
             session.query(tabel_name).filter_by(**filter_cond).update(new_v)
             session.commit()
 
+    # 按照特定条件查询
+    def Select_Data(self, table_name: DeclarativeBase, condition: dict):
+        res = None
+        with self._session() as session:
+            res = session.query(table_name).filter_by(**condition)
+            if self._Echo:
+                for l_info in res:
+                    print(l_info)
+        return res
+
     # 查
     def Inquire_Data(self, table_name: DeclarativeBase):
         res = None
         with self._session() as session:
             res = session.query(table_name)
-            for l_info in res:
-                print(l_info)
+            if self._Echo:
+                for l_info in res:
+                    print(l_info)
         return res
 
 
@@ -180,9 +201,20 @@ class TestSqlalchemy_Manager(unittest.TestCase):
         filter_cond = {'name': 'softwarename1'}
         self.db_api.Delet_Data(SoftWare, filter_cond)
 
+    def test_select_data(self):
+        filter_cond = {'name': 'softwarename1'}
+        self.db_api.Select_Data(SoftWare, filter_cond)
+
     def test_querydata(self):
         self.db_api.Inquire_Data(UsedSence)
         self.db_api.Inquire_Data(SoftWare)
+
+    def test_nparray(self):
+        a = np.random.random((4, 2048)).astype('float32')
+        b = nparray_to_bytes(a)
+        # print(b)
+        c = bytes_to_nparray(b)
+        # print(c)
 
 
 if __name__ == "__main__":
