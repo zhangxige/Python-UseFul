@@ -110,13 +110,15 @@ def Customizing_your_plot():
     p = figure(
         title="Logarithmic axis example",
         sizing_mode="stretch_width",
-        height=300,
-        max_width=500,
+        height=720,
+        max_width=1280,
         y_axis_type="log",
         y_range=[0.001, 10 ** 11],
         x_axis_label="sections",
         y_axis_label="particles",
+        background_fill_color="#fafafa"
     )
+    p.grid.grid_line_color = None
 
     # add some renderers
     p.line(x, x, legend_label="y=x")
@@ -130,6 +132,57 @@ def Customizing_your_plot():
     show(p)
 
 
+def Circle_Map_plot():
+    # importing the modules
+    from bokeh.plotting import figure, output_file, show
+    import math
+
+    # file to save the model 
+    output_file("gfg.html") 
+
+    # instantiating the figure object 
+    graph = figure(title = "Bokeh Pie Chart") 
+
+    # name of the sectors
+    sectors = ["Agriculture", "Industry", "Services"]
+
+    # % tage weightage of the sectors
+    percentages = [17.1, 29.1, 53.8]
+
+    # converting into radians
+    radians = [math.radians((percent / 100) * 360) for percent in percentages]
+
+    # starting angle values
+    start_angle = [math.radians(0)]
+    prev = start_angle[0]
+    for i in radians[:-1]:
+        start_angle.append(i + prev)
+        prev = i + prev
+
+    # ending angle values
+    end_angle = start_angle[1:] + [math.radians(0)]
+
+    # center of the pie chart
+    x = 0
+    y = 0
+
+    # radius of the glyphs
+    radius = 1
+
+    # color of the wedges
+    color = ["yellow", "red", "lightblue"]
+
+    # plotting the graph
+    for i in range(len(sectors)):
+        graph.wedge(x, y, radius,
+                    start_angle = start_angle[i],
+                    end_angle = end_angle[i],
+                    color = color[i],
+                    legend_label = sectors[i])
+
+    # displaying the graph
+    show(graph)
+
 if __name__ == '__main__':
     '''
     1、建立画布（生成不同风格）
@@ -137,5 +190,5 @@ if __name__ == '__main__':
     3、更改标签
     4、保存图像l
     '''
-    Customizing_your_plot()
+    Circle_Map_plot()
     pass
