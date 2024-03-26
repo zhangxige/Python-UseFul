@@ -21,7 +21,9 @@ pip install -r requirements.txt
 ```
 
 ### 举例:
-- 装饰器
+<details>
+<summary>装饰器</summary>
+
 ```python
 import time
 
@@ -47,8 +49,11 @@ def test_record_runtime():
 if __name__ == '__main__':
     test_record_runtime()
 ```
+</details>
 
-- 文件操作(举例)
+<details>
+<summary>文件操作(举例)</summary>
+
 ```python
 import os
 import shutil
@@ -78,11 +83,14 @@ if __name__ == '__main__':
     test_findfile()
     test_copyfiles()
 ```
+</details>
 
 ### 更多模块
 
+<details open>
+<summary>Gradio(举例)</summary>
 Python中还拥有着非常多的、方便使用的模块，项目收集的一些模块放在Utils中，可以参考快速实现一些功能原型。最近发现了一个Web UI相关的模块[Gradio](https://www.gradio.app/ "Gradio 方便部署你的Web UI快速展示后端功能")，之后会陆续更新进。
-
+</details>
 
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
