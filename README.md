@@ -79,6 +79,11 @@ if __name__ == '__main__':
     test_copyfiles()
 ```
 
+### 更多模块
+
+Python中还拥有着非常多的、方便使用的模块，项目收集的一些模块放在Utils中，可以参考快速实现一些功能原型。最近发现了一个Web UI相关的模块[Gradio](https://www.gradio.app/ "Gradio 方便部署你的Web UI快速展示后端功能")，之后会陆续更新进。
+
+
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
 - 关于markdown：.md 是一个很方便的结构说明文档，项目说明中需要采用。
