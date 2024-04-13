@@ -109,7 +109,25 @@ some code ...
 ```
 </details>
 
-### 更多模块
+<details>
+<summary>collections模块</summary>
+一定要像熟悉内置关键词一样熟悉的模块
+
+```python
+some code ...
+```
+</details>
+
+<details>
+<summary>functools模块</summary>
+一定要像熟悉内置关键词一样熟悉的模块
+
+```python
+some code ...
+```
+</details>
+
+### 更多模块(非常优秀的模块)
 
 <details open>
 <summary>
@@ -128,10 +146,14 @@ Boken模块
 
 [Boken](https://docs.bokeh.org/en/latest/docs/user_guide.html#userguide "交互式可视化web图表")：
 Bokeh is a Python library for creating interactive visualizations for modern web browsers. It helps you build beautiful graphics, ranging from simple plots to complex dashboards with streaming datasets. With Bokeh, you can create JavaScript-powered visualizations without writing any JavaScript yourself.
-
 </details>
 
-之后会陆续更新进。
+<details open>
+<summary>Pytorch</summary>
+
+[Pytorch](https://pytorch.org  "交互式可视化web图表")：
+是一个开源的Python机器学习库，基于Torch，用于自然语言处理等应用程序。PyTorch既可以看作加入了GPU支持的numpy，同时也可以看成一个拥有自动求导功能的强大的深度神经网络。除了Facebook外，它已经被Twitter、CMU和Salesforce等机构采用深度学习库，
+</details>
 
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
