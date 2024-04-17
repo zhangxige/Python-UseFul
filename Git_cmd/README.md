@@ -24,6 +24,13 @@ git remote add python-project https://github.com/zhangxige/Python-UseFul.git
 git remote -v
 ```
 
+- 向本地仓库删除文件
+``` Git bash
+git rm sommefile/folder
+e.g.
+$ git rm Git_cmd/
+```
+
 - 向本地仓库添加文件
 ``` Git bash
 git add sommefile/folder

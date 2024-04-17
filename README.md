@@ -155,6 +155,12 @@ Bokeh is a Python library for creating interactive visualizations for modern web
 是一个开源的Python机器学习库，基于Torch，用于自然语言处理等应用程序。PyTorch既可以看作加入了GPU支持的numpy，同时也可以看成一个拥有自动求导功能的强大的深度神经网络。除了Facebook外，它已经被Twitter、CMU和Salesforce等机构采用深度学习库，
 </details>
 
+<details>
+[Pytorch](https://pytorch.org  "交互式可视化web图表")：
+
+</details>
+
+
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
-- 关于markdown：.md 是一个很方便的结构说明文档，项目说明中需要采用。
+- 关于[markdown](https://www.markdownguide.org/ "markdown官网")：.md 是一个很方便的结构说明文档，项目说明中需要采用。
