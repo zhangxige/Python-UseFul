@@ -156,7 +156,13 @@ Bokeh is a Python library for creating interactive visualizations for modern web
 </details>
 
 <details>
-[Pytorch](https://pytorch.org  "交互式可视化web图表")：
+<summary>Faiss</summary>
+
+[Faiss](https://github.com/facebookresearch/faiss "高效向量检索")：
+Faiss的全称是Facebook AI Similarity Search。
+这是一个开源库，针对高维空间中的海量数据，提供了高效且可靠的检索方法。
+暴力检索耗时巨大，对于一个要求实时人脸识别的应用来说是不可取的。
+而Faiss则为这种场景提供了一套解决方案。
 
 </details>
 
