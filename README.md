@@ -127,6 +127,16 @@ some code ...
 ```
 </details>
 
+ 
+<details>
+<summary>协程asyncio</summary>
+python3的功能，以python3.8为例，python3.10之后取消yield实现协程功能。
+
+```python
+some code ...
+```
+</details>
+
 ### 更多模块(非常优秀的模块)
 
 <details open>
@@ -155,7 +165,7 @@ Bokeh is a Python library for creating interactive visualizations for modern web
 是一个开源的Python机器学习库，基于Torch，用于自然语言处理等应用程序。PyTorch既可以看作加入了GPU支持的numpy，同时也可以看成一个拥有自动求导功能的强大的深度神经网络。除了Facebook外，它已经被Twitter、CMU和Salesforce等机构采用深度学习库，
 </details>
 
-<details>
+<details open>
 <summary>Faiss</summary>
 
 [Faiss](https://github.com/facebookresearch/faiss "高效向量检索")：
