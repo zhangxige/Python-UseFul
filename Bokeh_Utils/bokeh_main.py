@@ -183,6 +183,7 @@ def Circle_Map_plot():
     # displaying the graph
     show(graph)
 
+
 if __name__ == '__main__':
     '''
     1、建立画布（生成不同风格）

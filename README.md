@@ -175,6 +175,14 @@ Faiss的全称是Facebook AI Similarity Search。
 
 </details>
 
+<details open>
+<summary>Pandas</summary>
+
+[Pandas](https://pandas.pydata.org/ "高效数据处理库")：
+pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
+built on top of the Python programming language.
+
+</details>
 
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
