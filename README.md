@@ -182,7 +182,44 @@ Faiss的全称是Facebook AI Similarity Search。
 pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
 built on top of the Python programming language.
 
+2024-5-9: pyinstaller打包pandas 2.2.2时出错，打包2.0.2通过
+
 </details>
+
+<details open>
+<summary>Flask</summary>
+
+[Flask](https://flask.palletsprojects.com/en/3.0.x/ "web服务端框架")：
+Flask是一个使用Python编写的轻量级Web应用框架。它被设计为易于使用和扩展，使得开发者可以快速搭建基本的Web应用，同时也能够构建复杂的系统。
+
+官方文档比较难懂，可以参考[Flask中文站](https://flask.github.net.cn/)
+
+</details>
+
+<details open>
+<summary>Pyinstaller</summary>
+
+[Pyinstaller](https://pyinstaller.org/ "桌面打包应用")：
+
+PyInstaller bundles a Python application and all its dependencies into a single package. The user can run the packaged app without installing a Python interpreter or any modules. PyInstaller supports Python 3.8 and newer, and correctly bundles many major Python packages such as numpy, matplotlib, PyQt, wxPython, and others.
+
+[Ref doc](https://pyinstaller.org/en/stable/)
+
+</details>
+
+<details open>
+<summary>PyQt5</summary>
+
+[PyQt5](https://www.riverbankcomputing.com/software/pyqt/ "跨平台桌面级应用")：
+
+Qt is set of cross-platform C++ libraries that implement high-level APIs for accessing many aspects of modern desktop and mobile systems. These include location and positioning services, multimedia, NFC and Bluetooth connectivity, a Chromium based web browser, as well as traditional UI development.
+
+PyQt5 is a comprehensive set of Python bindings for Qt v5. It is implemented as more than 35 extension modules and enables Python to be used as an alternative application development language to C++ on all supported platforms including iOS and Android.
+
+PyQt5 may also be embedded in C++ based applications to allow users of those applications to configure or enhance the functionality of those applications.
+
+</details>
+
 
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
