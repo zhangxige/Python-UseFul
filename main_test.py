@@ -47,6 +47,18 @@ class Solution:
         return n * 4
 
 
+def filename_to_txt():
+    txtname = 'temp.txt'
+    p = r'C:\Users\zhangxige\Downloads\Jquery_tools\3DCarousel-master\images'
+    with open(txtname, 'w+') as f:
+        for file in os.listdir(p):
+            f.write('\"images/')
+            f.write(file)
+            f.write('\",')
+            f.write('\n')
+
+
 if __name__ == "__main__":
-    res = test_fun()
-    pprint(res)
+    # res = test_fun()
+    # pprint(res)
+    filename_to_txt()
