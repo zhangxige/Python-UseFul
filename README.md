@@ -226,9 +226,15 @@ Qt is set of cross-platform C++ libraries that implement high-level APIs for acc
 PyQt5 is a comprehensive set of Python bindings for Qt v5. It is implemented as more than 35 extension modules and enables Python to be used as an alternative application development language to C++ on all supported platforms including iOS and Android.
 
 PyQt5 may also be embedded in C++ based applications to allow users of those applications to configure or enhance the functionality of those applications.
-
 </details>
 
+<details open>
+<summary>SQLAlchemy</summary>
+
+[SQLAlchemy](https://docs.sqlalchemy.org/en/20/orm/quickstart.html#declare-models) is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL. SQLAlchemy provides a full suite of well known enterprise-level persistence patterns, designed for efficient and high-performing database access, adapted into a simple and Pythonic domain language.
+
+[SQLAlchemy official github](https://github.com/sqlalchemy/sqlalchemy)
+</details>
 
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
