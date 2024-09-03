@@ -236,6 +236,16 @@ PyQt5 may also be embedded in C++ based applications to allow users of those app
 [SQLAlchemy official github](https://github.com/sqlalchemy/sqlalchemy)
 </details>
 
+<details open>
+<summary>NetworkX</summary>
+
+NetworkX是一个用Python语言开发的库，它提供了丰富的工具，用于创建、操作和研究复杂网络的结构、动态和功能。
+
+无论你是想分析互联网的链接结构，研究社交网络中的信息传播，还是探索交通网络的最优路径，NetworkX都能助你一臂之力。
+
+[NetworkX Github](https://github.com/networkx/networkx)
+</details>
+
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
 - 关于[markdown](https://www.markdownguide.org/ "markdown官网")：.md 是一个很方便的结构说明文档，项目说明中需要采用。
