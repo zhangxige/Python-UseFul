@@ -54,15 +54,6 @@ def test_sortkey():
     pprint(sorted_data)
 
 
-def test_searchfun():
-    import re
-    str = "Hello, world!"
-    pattern = r'world'
-    result = re.findall(pattern, str)
-    print(result)
-    pass
-
-
 def test_decimal():
 
     a = Decimal('2.3')
@@ -373,7 +364,7 @@ def test_heapq():
     print(test2)
     heapq.heappop(test2)
     print(test2)
-    res = heapq.nsmallest(3,test2)
+    res = heapq.nsmallest(3, test2)
     print(res)
 
 
@@ -397,13 +388,14 @@ def test_graph():
         distances[start] = 0
 
         # 初始化父亲节点
-        parent = {vertex: None for vertex in graph} 
+        parent = {vertex: None for vertex in graph}
         priority_queue = [(0, start)]
 
         while priority_queue:
             # 弹出堆中距离最小的节点
             current_distance, current_vertex = heapq.heappop(priority_queue)
-            # print("距离最小的节点是:",current_distance, current_vertex, "更新后的队列:",priority_queue)
+            # print("距离最小的节点是:",current_distance,
+            #  current_vertex, "更新后的队列:",priority_queue)
 
             # 如果当前距离已经大于已知的最短距离，则跳过
             if current_distance > distances[current_vertex]:
@@ -461,7 +453,42 @@ def test_erfensearch():
     print(res)
 
 
+def test_re_findstr():
+    import re
+    s_str = 'dfjsi AAb89432d fs'
+    pattern = '[A-Z]+[a-z][0-9]'
+    p1 = re.compile(pattern)
+    res = re.findall(p1, s_str)
+    print(res)
+
+    s_str = 'af-cd-13-fc-z3'
+    pattern = '[a-f0-9][a-z0-9]'
+    p1 = re.compile(pattern)
+    res = re.findall(p1, s_str)
+    print(res)
+
+    s_str = 'school 30 student 39 name 123'
+    pattern = r'(\d+)'
+    res = re.split(pattern, s_str)
+    print(res)
+
+    s_str = 'school 30 student 39 name 123'
+    pattern = r'\d+'
+    res = re.split(pattern, s_str)
+    print(res)
+
+    s_str = "Hello, world!"
+    pattern = r'world'
+    result = re.findall(pattern, s_str)
+    print(result)
+    
+    s_str = "Hello, world! 89934 , niha2o,3 world!"
+    pattern = r'\d'
+    result = re.sub(pattern, 'x', s_str)
+    print(result)
+
+
 if __name__ == "__main__":
     # res = test_decimal()
-    test_erfensearch()
+    test_re_findstr()
     pass
