@@ -481,7 +481,7 @@ def test_re_findstr():
     pattern = r'world'
     result = re.findall(pattern, s_str)
     print(result)
-    
+    # example
     s_str = "Hello, world! 89934 , niha2o,3 world!"
     pattern = r'\d'
     result = re.sub(pattern, 'x', s_str)
