@@ -1,4 +1,3 @@
-from pprint import pprint
 import os
 import sys
 from pathlib import Path
@@ -22,43 +21,6 @@ def test_fun():
     return test
 
 
-class Solution:
-    def help_zhouchang(self, n):
-        if n == 0:
-            return 0
-        else:
-            return (n * (n + 1) + (1 + n) * n / 2) * 4
-
-    def help_all(self, n):
-        if n == 0:
-            return 0
-        else:
-            return self.help_all(n - 1) + self.help_zhouchang(n)
-
-    def help_inner(self, n):
-        return self.help_all(n) - self.help_zhouchang(n)
-
-    def minimumPerimeter(self, neededApples: int) -> int:
-        n = 1
-        while n:
-            if (self.help_inner(n) >= neededApples) or (self.help_zhouchang(n) >= neededApples):
-                break
-            n = n + 1
-        return n * 4
-
-
-def filename_to_txt():
-    txtname = 'temp.txt'
-    p = r'C:\Users\zhangxige\Downloads\Jquery_tools\3DCarousel-master\images'
-    with open(txtname, 'w+') as f:
-        for file in os.listdir(p):
-            f.write('\"images/')
-            f.write(file)
-            f.write('\",')
-            f.write('\n')
-
-
 if __name__ == "__main__":
-    # res = test_fun()
-    # pprint(res)
-    filename_to_txt()
+    test_fun()
+    pass
