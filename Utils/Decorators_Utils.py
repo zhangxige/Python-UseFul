@@ -47,7 +47,8 @@ def retry(max_attempts, delay):
                 try:
                     return func(*args, **kwargs)
                 except Exception as e:
-                    info = f"Attempt {attempts + 1} failed. Retrying in {delay} seconds."
+                    info = f"Attempt {attempts + 1} failed.\
+                     Retrying in {delay} seconds."
                     print(info)
                     print(f"{func.__name__} : {e}")
                 attempts += 1
