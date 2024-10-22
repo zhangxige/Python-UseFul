@@ -123,7 +123,9 @@ class MyLogs(Singleton):
                 cls.log("info", "<green>-----------分割线-----------</>")
                 cls.log("info", f"<white>{msg}  ↓↓↓</>")
                 cls.log("debug",
-                        f'<red>{func.__qualname__}:{func.__name__}:{func_line} |</>  <white> args: {args_str}, kwargs:{kwargs_str}</>')
+                        f'<red>{func.__qualname__}:' +
+                        f'{func.__name__}:{func_line} |</>  <white> args:' +
+                        f'{args_str}, kwargs:{kwargs_str}</>')
                 start = perf_counter()
                 try:
                     result = func(*args, **kwargs)
@@ -132,12 +134,15 @@ class MyLogs(Singleton):
                     end = perf_counter()
                     duration = end - start
                     cls.log("debug",
-                            f"<red>{func.__qualname__}:{func.__name__}:{func_line} |</>  <white> 返回结果：{result_str}, 耗时：{duration:4f}s</>")
+                            f'<red>{func.__qualname__}:{func.__name__}:' +
+                            f'{func_line} |</>  <white> 返回结果：' +
+                            f'{result_str}, 耗时：{duration:4f}s</>')
                     return result
 
                 except Exception as e:
                     cls.log("exception",
-                            f"<red>{func.__qualname__}:{func.__name__}:{func_line} |</>: {msg}:报错 :{e}")
+                            f'<red>{func.__qualname__}:{func.__name__}:' +
+                            f'{func_line} |</>: {msg}:报错 :{e}')
                     sys.exit(1)
 
                 finally:
@@ -148,18 +153,24 @@ class MyLogs(Singleton):
 
         return decorator
 
+    @classmethod
+    def log_clear(cls):
+        for it in os.listdir(cls.LOG_DIR):
+            os.remove(os.path.join(cls.LOG_DIR, it))
 
-MyLogs()
+
 if __name__ == '__main__':
     MyLogs.log("debug", "Executing step 3 of the algorithm")
     MyLogs.log("info", "Server started on port")
     MyLogs.log("warning", "Invalid input provided, using default values")
     MyLogs.log("error", "Invalid user input detected, unable to proceed")
-    MyLogs.log("critical", "Database connection lost, terminating the application")
-    MyLogs.log("exception", "exception connection lost, terminating the application")
+    MyLogs.log("critical", "Database connection lost, terminating the app")
+    MyLogs.log("exception", "exception connection lost, terminating the app")
 
     @MyLogs.log_decorator("1111111111111111111")
     def A(a, b):
         a / b
 
     A(1, 1)
+
+    MyLogs.log_clear()

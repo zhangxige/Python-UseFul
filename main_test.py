@@ -55,6 +55,12 @@ class leetcode_908:
         mx, mi = max(nums), min(nums)
         return max(0, mx - mi - k * 2)
 
+    def test(self):
+        nums = [1, 3, 6]
+        k = 3
+        res = self.smallestRangeI(nums, k)
+        print(res)
+
 
 class leetcode_910:
     def smallestRangeII(self, nums: List[int], k: int) -> int:
@@ -74,6 +80,53 @@ class leetcode_910:
         print(res)
 
 
+class leetcode_3184:
+    def countCompleteDayPairs(self, hours: List[int]) -> int:
+        res = 0
+        for i in range(len(hours) - 1):
+            for j in range(i + 1, len(hours)):
+                res += 1 if (hours[i] + hours[j]) % 24 == 0 else 0
+        return res
+
+    def test(self):
+        a = [12, 12, 30, 24, 24]
+        a = [72, 48, 24, 3]
+        res = self.countCompleteDayPairs(a)
+        print(res)
+
+
+class erfen_solution:
+    def help(self, s_list: List[int], target: int, num: int) -> bool:
+        res = True
+        for it in s_list:
+            if it <= target:
+                num -= 1
+            else:
+                sub_num = it // target if it % target == 0 else it // target + 1
+                num -= sub_num
+            if num < 0:
+                res = False
+                break
+        return res
+
+    def method(self, num: int, st_list: List[int]) -> int:
+        left = 1
+        right = max(st_list)
+        while left < right:
+            mid = (left + right) // 2 + 1
+            if self.help(st_list, mid, num):
+                right = mid - 1
+            else:
+                left = mid
+        return left + 1
+
+    def test(self):
+        n = 8
+        s = [101, 51, 1, 20, 40]
+        res = self.method(n, s)
+        print(res)
+
+
 if __name__ == "__main__":
-    a = leetcode_910()
+    a = leetcode_3184()
     a.test()
