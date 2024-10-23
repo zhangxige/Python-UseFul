@@ -53,6 +53,29 @@ def test_sortkey():
     sorted_data = sorted(data, key=cmp_to_key(compare))
     pprint(sorted_data)
 
+    '''
+        lamda 方法
+    '''
+    data = [('Tom', 23, 2),
+            ('Jerry', 24, 4),
+            ('Alice', 23, 5),
+            ('Bob', 22, 12),
+            ('None', 18, 23)]
+    sort_col = [1, 2]
+    data.sort(key=lambda x: [x[i] for i in sort_col])
+    pprint(sorted_data)
+
+    '''
+        lamda 方法
+    '''
+    data = [('Tom', 23, 2),
+            ('Jerry', 24, 4),
+            ('Alice', 23, 5),
+            ('Bob', 22, 12),
+            ('None', 18, 23)]
+    data.sort(key=lambda x: (x[1], -x[2]))
+    pprint(sorted_data)
+
 
 def test_decimal():
 
@@ -490,5 +513,5 @@ def test_re_findstr():
 
 if __name__ == "__main__":
     # res = test_decimal()
-    test_re_findstr()
+    test_sortkey()
     pass

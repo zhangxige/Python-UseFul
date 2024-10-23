@@ -1,5 +1,4 @@
 # This Utils for test config demo
-import os
 import configparser
 from typing import AnyStr, DefaultDict
 

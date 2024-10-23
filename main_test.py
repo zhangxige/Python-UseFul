@@ -5,6 +5,7 @@ from typing import List
 
 from Utils.Decorators_Utils import timer
 
+
 # base root
 # ref: https://github.com/ultralytics/yolov5/blob/master/segment/predict.py
 FILE = Path(__file__).resolve()
@@ -127,6 +128,25 @@ class erfen_solution:
         print(res)
 
 
+class leetcode_3185:
+    def countCompleteDayPairs(self, hours: List[int]) -> int:
+        res = 0
+        l_temp = [0] * 24
+        for it in hours:
+            l_temp[it % 24] += 1
+        res += l_temp[0] * (l_temp[0] - 1) // 2
+        res += l_temp[12] * (l_temp[12] - 1) // 2
+        for i in range(1, 12):
+            res += l_temp[i] * l_temp[24 - i]
+        return res
+
+    def test(self):
+        hours = [12, 12, 30, 24, 24]
+        hours = [72, 48, 24, 3]
+        res = self.countCompleteDayPairs(hours)
+        print(res)
+
+
 if __name__ == "__main__":
-    a = leetcode_3184()
+    a = leetcode_3185()
     a.test()
