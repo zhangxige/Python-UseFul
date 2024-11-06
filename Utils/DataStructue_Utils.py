@@ -511,7 +511,18 @@ def test_re_findstr():
     print(result)
 
 
+def str_to_num():
+    # 进制转换
+    a = '0xff'
+    print(int(a, 16))
+    a = 'fe'
+    print(int(a, 16))
+    a = '1011'
+    print(hex(int(a, 2)))
+    pass
+
+
 if __name__ == "__main__":
     # res = test_decimal()
-    test_sortkey()
+    str_to_num()
     pass

@@ -147,6 +147,100 @@ class leetcode_3185:
         print(res)
 
 
+class leetcode_684:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        n = len(edges)
+        parent = list(range(n + 1))
+
+        def find(index: int) -> int:
+            if parent[index] != index:
+                parent[index] = find(parent[index])
+            return parent[index]
+        
+        def union(index1: int, index2: int):
+            parent[find(index1)] = find(index2)
+
+        for node1, node2 in edges:
+            if find(node1) != find(node2):
+                union(node1, node2)
+            else:
+                return [node1, node2]
+        
+        return []
+
+    def test(self):
+        edges = [[1, 2], [2, 3], [3, 4], [1, 4], [1, 5]]
+        res = self.findRedundantConnection(edges)
+        print(res)
+
+
+class leetcode_3216:
+    def getSmallestString(self, s: str) -> str:
+        res = ''
+        for i in range(len(s) - 1):
+            a, b = int(s[i]), int(s[i + 1])
+            if (a & 1) is (b & 1) and a > b:
+                res = s[:i] + s[i + 1] + s[i] + s[i + 2:]
+                break
+        if res:
+            return res
+        else:
+            return s
+
+    def test(self):
+        s = "45320"
+        # s = '001'
+        res = self.getSmallestString(s)
+        print(res)
+
+
+class leetcode_2961:
+    def getGoodIndices(self, variables: List[List[int]], target: int):
+        res = [i for i, (a, b, c, m) in enumerate(variables)
+               if pow(pow(a, b) % 10, c) % m == target]
+        return res
+
+    def test(self):
+        variables = [[2, 3, 3, 10],
+                     [3, 3, 3, 1],
+                     [6, 1, 1, 4]]
+        target = 2
+        res = self.getGoodIndices(variables, target)
+        print(res)
+
+
+class leetcode_3254:
+    def resultsArray(self, nums: List[int], k: int) -> List[int]:
+        temp = [0] + [nums[i + 1] - nums[i] for i in range(len(nums) - 1)]
+        t_map = {}
+        t_map[1] = len([it for it in temp[1:k] if it > 0])
+        t_map[-1] = len([it for it in temp[1:k] if it <= 0])
+        res = [nums[k - 1] if t_map[-1] == 0 else -1]
+        for i, it in enumerate(nums[k:]):
+            if temp[i + k] > 0:
+                t_map[1] += 1
+            else:
+                t_map[-1] += 1
+            if temp[i + 1] > 0:
+                t_map[1] -= 1
+            else:
+                t_map[-1] -= 1
+            res.append(it if t_map[-1] == 0 else -1)
+        return res
+
+    def test(self):
+        nums = [1, 2, 3, 4, 3, 2, 5]
+        k = 3
+        nums = [3, 2, 3, 2, 3, 2]
+        k = 2
+        # nums = [2, 2, 2, 2, 2]
+        # k = 4
+        nums = [1, 3, 4]
+        k = 2
+        res = self.resultsArray(nums, k)
+        print(res)
+
+
 if __name__ == "__main__":
-    a = leetcode_3185()
+    a = leetcode_3254()
     a.test()
