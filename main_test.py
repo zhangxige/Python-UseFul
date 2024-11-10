@@ -241,6 +241,27 @@ class leetcode_3254:
         print(res)
 
 
+class Solution_20241109:
+    def isBalanced(self, num: str) -> bool:
+        res1, res2 = 0, 0
+        for i, it in enumerate(num):
+            if (i + 1) % 2 == 1:
+                res1 += int(it)
+            else:
+                res2 += int(it)
+        return res1 == res2
+    
+    def test(self):
+        nums = '1234'
+        res = self.isBalanced(nums)
+        print(res)
+
+
 if __name__ == "__main__":
-    a = leetcode_3254()
-    a.test()
+    a = {'t': [4, 5],
+         'f': [3, 6, 7]}
+    key = filter(lambda x: True if len(x[1]) > 2 else False, a.items())
+    res = map(lambda x: x[0], key)
+    for it in res:
+        print(it)
+    pass

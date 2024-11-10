@@ -174,7 +174,7 @@ def test_dataclass():
     from dataclasses import dataclass
     from dataclasses import field
 
-    @dataclass
+    @dataclass()
     class Player:
         name: str
         number: int
@@ -182,7 +182,22 @@ def test_dataclass():
         age: int
         grade: float
 
+        def __lt__(self, other):
+            if self.grade == other.grade:
+                return self.number <= other.number
+            return self.grade < other.grade
+
     james = Player('james', 1, 'abc', 10, 20)
+    alice = Player('alice', 2, 'xyz', 11, 32)
+    tom = Player('tom', 3, 'xyz', 11, 32)
+    tim = Player('tim', 4, 'xyz', 11, 20)
+    bob = Player('bob', 2, 'xyz', 11, 32)
+    students = [james, alice, tom, tim, bob]
+    students = sorted(students,
+                      key=lambda x: [x.grade, x.number], 
+                      reverse=True)
+    for it in sorted(students, reverse=True):
+        print(it)
 
     @dataclass
     class Team:
@@ -524,5 +539,5 @@ def str_to_num():
 
 if __name__ == "__main__":
     # res = test_decimal()
-    str_to_num()
+    test_dataclass()
     pass
