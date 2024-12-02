@@ -149,6 +149,13 @@ some code ...
 
 <details open>
 <summary>
+streamlit
+</summary>
+
+[streamlit](https://streamlit.io/): A fast way to build and share data apps.Streamlit is an open-source Python framework for data scientists and AI/ML engineers to deliver interactive data apps – in only a few lines of code.
+
+<details open>
+<summary>
 Gradio模块
 </summary>
 
@@ -244,6 +251,13 @@ NetworkX是一个用Python语言开发的库，它提供了丰富的工具，用
 无论你是想分析互联网的链接结构，研究社交网络中的信息传播，还是探索交通网络的最优路径，NetworkX都能助你一臂之力。
 
 [NetworkX Github](https://github.com/networkx/networkx)
+</details>
+
+
+<details open>
+<summary>Streamlit</summary>
+
+[Streamlit](https://docs.streamlit.io/)一个方便数据前端可视化及操作的框架库，简介好用，易开发。
 </details>
 
 ### 记在最后:
