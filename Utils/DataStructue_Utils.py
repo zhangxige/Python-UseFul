@@ -77,6 +77,15 @@ def test_sortkey():
     pprint(sorted_data)
 
 
+# 二分查找
+def test_search():
+    import bisect
+    a = [-1, 3, 5, 9]
+    a.sort()
+    pos = bisect.bisect_left(a, 2)
+    print(pos)
+
+
 def test_decimal():
 
     a = Decimal('2.3')
@@ -400,9 +409,30 @@ def test_heapq():
              (8, 'f')]
     heapq.heapify(test2)
     print(test2)
-    heapq.heappop(test2)
-    print(test2)
+    a = heapq.heappop(test2)
+    print(a)
     res = heapq.nsmallest(3, test2)
+    print(res)
+
+
+def test_priority_queue():
+    import queue
+    a = queue.PriorityQueue()
+    s = [1, 4, 8, 2, 5]
+    for it in s:
+        a.put(it)
+    res = a.get()
+    print(res)
+
+    b = queue.PriorityQueue()
+    m = [(21, 4, 'ds'),
+         (4, 2, 'da'),
+         (8, 2, 'kdf'),
+         (2, 2, 'aa'),
+         (5, 3, ('po'))]
+    for it in m:
+        b.put(it)
+    res = b.get()
     print(res)
 
 
@@ -539,5 +569,5 @@ def str_to_num():
 
 if __name__ == "__main__":
     # res = test_decimal()
-    test_dataclass()
+    test_heapq()
     pass

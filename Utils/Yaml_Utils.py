@@ -25,4 +25,5 @@ if __name__ == '__main__':
         # 读取的结果是 转字典
         res = yaml.safe_load(cfg)
         print(type(res))
+        print(res.keys())
         print(res)
