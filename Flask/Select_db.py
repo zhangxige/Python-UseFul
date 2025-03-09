@@ -18,3 +18,14 @@ def select():
     info = {'a': 1, 'b': 2}
     return info
     # return render_template('test.html', posts=info)
+
+
+# 数据库相关操作接口
+class db_api:
+    def __init__(self):
+        pass
+
+    # 查询
+    # 添加
+    # 删除
+    # 修改
