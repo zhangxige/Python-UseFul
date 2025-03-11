@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>编号</th>
+        <th>用户名</th>
+        <th>邮箱</th>
+        <th>操作</th>
+    </tr>
+    {% for u in users %}
+        <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.email }}</td>
+            <td>
+                <a href="delete/{{ u.id }}">删除</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

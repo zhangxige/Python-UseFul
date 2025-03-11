@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>编号</th>
+            <th>用户名</th>
+            <th>邮箱</th>
+        </tr>
+        {% for u in users %}
+            <tr>
+                <td>{{ u.id }}</td>
+                <td>{{ u.username }}</td>
+                <td>{{ u.email }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h2>更新用户信息</h2>
+    <form action="/update" method="post">
+        <label for="id">用户ID:</label><br>
+        <input type="text" id="id" name="id" required><br>
+        <label for="username">新用户名:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="email">新邮箱:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <input type="submit" value="更新">
+    </form>
+</body>
+</html>
