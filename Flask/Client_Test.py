@@ -1,5 +1,6 @@
 import os
 import requests
+import unittest
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
@@ -54,7 +55,9 @@ class server_api:
         upload_url = IP_ADRESS + ':' + str(PORT) + route
         # max_workers可以根据需要调整线程数
         with ThreadPoolExecutor(max_workers=5) as executor:
-            future_to_url = {executor.submit(upload_image, image_url, upload_url): image_url 
+            future_to_url = {executor.submit(upload_image,
+                                             image_url,
+                                             upload_url): image_url
                              for image_url in image_urls}
             for future in as_completed(future_to_url):
                 image_url = future_to_url[future]
@@ -67,17 +70,41 @@ class server_api:
                     print(f'{image_url} generated an exception: {exc}')
 
 
+class Test_server_api(unittest.TestCase):
+    # preparation init test
+    @classmethod
+    def setUpClass(cls):
+        cls.test = server_api()
+
+    def setUp(self):
+        # 每一个测试前都会执行
+        print('test begin!')
+
+    def tearDown(self):
+        # 每一个测试后都会执行
+        print('end test!')
+
+    def test_post_json(self):
+        test = self.test
+        data = {'name': 'value', 'world': 3000}  # 要发送的数据
+        test.post_json(data)
+
+    def test_post_image(self):
+        test = self.test
+        img_p = r'test.jpg'
+        test.post_img(img_p)
+
+    def test_post_images(self):
+        test = self.test
+        test_dir = r'./test_dir/'
+        try:
+            img_list = [os.path.join(test_dir, it)
+                        for it in os.listdir(test_dir)
+                        if it.endswith('.jpg')]
+            test.post_img_list(img_list)
+        except Exception as e:
+            print(e)
+
+
 if __name__ == '__main__':
-    test = server_api()
-    # data = {'name': 'value', 'world': 3000}  # 要发送的数据
-    # test.post_json(data)
-    # img_p = r'test.jpg'
-    # test.post_img(img_p)
-
-    test_dir = r'./test_dir/'
-    img_list = [os.path.join(test_dir, it)
-                for it in os.listdir(test_dir)
-                if it.endswith('.jpg')]
-    test.post_img_list(img_list)
-
-    pass
+    unittest.main()
