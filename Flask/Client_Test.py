@@ -44,7 +44,6 @@ class server_api:
                 # 读取图片数据
                 with open(image_url, 'rb') as f:
                     files = {'file': (image_url, f, 'image/jpeg')}
-                
                     # 发送POST请求上传图片
                     response = requests.post(upload_url, files=files)
                 return (image_url, response.status_code, response.text)
