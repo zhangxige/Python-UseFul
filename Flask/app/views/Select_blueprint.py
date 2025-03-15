@@ -22,10 +22,6 @@ class db_api:
         info = {'a': 1, 'b': 2}
         return info
         # return render_template('test.html', posts=info)
-    # 查询
-    # 添加
-    # 删除
-    # 修改
 
 
 #
