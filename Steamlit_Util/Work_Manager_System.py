@@ -90,6 +90,13 @@ def test_main():
     # 启动任务调度系统
     scheduler.start()
 
+    # 新添加任务
+    time.sleep(10)
+    task_name = "任务_new"
+    task_duration = random.randint(5, 20)  # 随机任务执行时长
+    scheduler.add_task(task_name, task_duration)
+    print('新任务添加成功！')
+
     # 等待所有任务完成
     scheduler.wait_for_completion()
 

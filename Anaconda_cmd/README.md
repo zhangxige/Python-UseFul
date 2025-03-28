@@ -119,5 +119,16 @@ conda批量安装requirements.txt文件中包含的组件依赖
 conda install --yes --file requirements.txt
 ```
 
+### 7. 导出配置文件和通过配置文件安装
+```Shell
+conda env export > environment.yml
+```
+
+使用conda env create从environment.yml创建环境
+
+```Shell
+conda env create -f environment.yml
+```
+
 ### 参考
 [Anaconda官方文档](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)
