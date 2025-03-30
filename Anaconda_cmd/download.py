@@ -16,6 +16,14 @@ def download(res):
 
 if __name__ == '__main__':
     File = r'requirements.txt'
-    result = subprocess.run(['python', '-m', 'pip', 'download', '-r', File, '-d', '.'],
-                             stdout=subprocess.PIPE, text=True)
+    result = subprocess.run(['python',
+                             '-m',
+                             'pip',
+                             'download',
+                             '-r',
+                             File,
+                             '-d',
+                             '.'],
+                            stdout=subprocess.PIPE,
+                            text=True)
     download(result)
