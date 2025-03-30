@@ -14,6 +14,7 @@ def create_app():
     from .model_view import sqlite3_api
     from .views.Algorithm_blueprint import alg_blueprint
     from .views.Select_blueprint import db_api
+    from .views.Worker_blueprint import worker_blueprint
     db.init_app(app)
     with app.app_context():
         db.create_all()
@@ -21,5 +22,6 @@ def create_app():
     app.register_blueprint(sqlite3_api.s_api)
     app.register_blueprint(alg_blueprint.alg)
     app.register_blueprint(db_api.bp)
+    app.register_blueprint(worker_blueprint.work)
 
     return app

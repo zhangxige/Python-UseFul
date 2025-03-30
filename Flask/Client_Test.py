@@ -68,6 +68,13 @@ class server_api:
                 except Exception as exc:
                     print(f'{image_url} generated an exception: {exc}')
 
+    # 添加任务
+    def post_work(self, json_data: dict):
+        route = '/work/add'
+        url = IP_ADRESS + ':' + str(PORT) + route
+        response = requests.post(url, json=json_data)
+        print(response.text)  # 打印响应内容
+
 
 class Test_server_api(unittest.TestCase):
     # preparation init test
@@ -103,7 +110,23 @@ class Test_server_api(unittest.TestCase):
             test.post_img_list(img_list)
         except Exception as e:
             print(e)
+    
+    def test_post_work(self):
+        test = self.test
+        data = {'name': 'zxc', 'aaa': 'dfd'}
+        test.post_json(data)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    # unittest.main()
+    test = server_api()
+    j = {'name': 'zccxc1', 'aaa': 'dfd'}
+    test.post_work(j)
+    j = {'name': 'zccxc2', 'aaa': 'dfd'}
+    test.post_work(j)
+    j = {'name': 'zccxc3', 'aaa': 'dfd'}
+    test.post_work(j)
+    j = {'name': 'zccxc4', 'aaa': 'dfd'}
+    test.post_work(j)
+    j = {'name': 'zccxc5', 'aaa': 'dfd'}
+    test.post_work(j)
