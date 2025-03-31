@@ -90,9 +90,15 @@ class worker_blueprint:
 
     # 提交任务
     @work.route("/add", methods=["POST"])
-    def get_json():
+    def add_job():
         data = request.json  # 这是一个字典类型，可以直接访问键值对
         task_name = data.get('name', 'new_name')  # 获取'name'，如果没有则使用默认值'World'
         task_duration = random.randint(5, 20)  # 随机任务执行时长
         worker_blueprint.scheduler.add_task(task_name, task_duration)
         return jsonify({'message': f'Received name: {task_name}'})
+
+    # 提交任务
+    @work.route("/query", methods=["GET"])
+    def query_job():
+        task_nums = worker_blueprint.scheduler.task_queue.qsize()
+        return jsonify({'message': f'{task_nums} of jobs are waiting!'})

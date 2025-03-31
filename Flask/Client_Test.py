@@ -75,6 +75,13 @@ class server_api:
         response = requests.post(url, json=json_data)
         print(response.text)  # 打印响应内容
 
+    # 查询任务
+    def query_work(self):
+        route = '/work/query'
+        url = IP_ADRESS + ':' + str(PORT) + route
+        response = requests.get(url)
+        print(response.text)  # 打印响应内容
+
 
 class Test_server_api(unittest.TestCase):
     # preparation init test
@@ -130,3 +137,4 @@ if __name__ == '__main__':
     test.post_work(j)
     j = {'name': 'zccxc5', 'aaa': 'dfd'}
     test.post_work(j)
+    test.query_work()
