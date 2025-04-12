@@ -1,5 +1,6 @@
 import os
 import shutil
+import glob
 from tqdm import tqdm
 from enum import Enum
 
@@ -93,6 +94,12 @@ def test_copyfiles():
     test.Batch_FileCopy(src_dir, dst_dir)
 
 
+# 测试三
+def test_glob():
+    for it in glob.glob('**/*.py', recursive=True):
+        print(it)
+
+
 if __name__ == '__main__':
-    test_findfile()
-    test_copyfiles()
+    # test_findfile()
+    test_glob()
