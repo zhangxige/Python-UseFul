@@ -14,7 +14,7 @@ def download(res):
             f.write('\n')
 
 
-if __name__ == '__main__':
+def download_main():
     File = r'requirements.txt'
     result = subprocess.run(['python',
                              '-m',
@@ -27,3 +27,7 @@ if __name__ == '__main__':
                             stdout=subprocess.PIPE,
                             text=True)
     download(result)
+
+
+if __name__ == '__main__':
+    download_main()
