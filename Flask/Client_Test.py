@@ -13,6 +13,15 @@ class server_api:
         pass
 
     # 上传 json 数据
+    def get_json(self, json_data: dict):
+        route = '/alg/alg1'
+        url = IP_ADRESS + ':' + str(PORT) + route
+        response = requests.get(url, json=json_data)
+        # headers = {'Content-Type': 'application/json'}
+        # response = requests.post(url, data=json_data, headers=headers)
+        print(response.text)  # 打印响应内容
+    
+    # 上传 json 数据
     def post_json(self, json_data: dict):
         route = '/alg/alg2'
         url = IP_ADRESS + ':' + str(PORT) + route
@@ -138,3 +147,4 @@ if __name__ == '__main__':
     j = {'name': 'zccxc5', 'aaa': 'dfd'}
     test.post_work(j)
     test.query_work()
+

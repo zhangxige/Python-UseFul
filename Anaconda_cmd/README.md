@@ -1,5 +1,10 @@
 # Anaconda 常用命令
 
+![Static Badge](https://img.shields.io/badge/build-passing-brightgreen)
+
+
+![Static Badge](https://img.shields.io/badge/zsr-codelab-red?logo=GitHub&label=hello)
+
 ### 1. 创建、删除和复制虚拟环境
 
 创建名为 env_name 的虚拟环境：

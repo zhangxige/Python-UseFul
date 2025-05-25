@@ -23,6 +23,7 @@ class alg_blueprint:
     @alg.route("/alg1", methods=("GET", "POST"))
     def select():
         info = {'a': 1, 'b': 2}
+        # print("alg/alg1")s
         return info
 
     # post 提交json数据
