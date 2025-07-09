@@ -1,6 +1,7 @@
 import os
 from flask import Blueprint, current_app
-from flask import request, jsonify
+from flask import request, jsonify, send_from_directory
+from werkzeug.exceptions import NotFound
 
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'ini'}  # 允许的文件类型
@@ -52,3 +53,13 @@ class alg_blueprint:
             return jsonify(info), 201
         else:
             return jsonify({'error': 'File type not allowed'}), 400
+
+    # 上传文件
+    @alg.route("/upload/<filename>")
+    def upload_file(filename):
+        base_path = current_app.config['UPLOAD_FOLDER']
+        try:
+            return send_from_directory(base_path, filename)
+        except NotFound:
+            return "File not found", 404
+
