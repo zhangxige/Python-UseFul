@@ -57,6 +57,7 @@ class alg_blueprint:
     # 上传文件
     @alg.route("/upload/<filename>")
     def upload_file(filename):
+        current_app.logger.info(f"Request to upload file: {filename}")
         base_path = current_app.config['UPLOAD_FOLDER']
         try:
             return send_from_directory(base_path, filename)

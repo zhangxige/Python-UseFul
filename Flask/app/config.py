@@ -1,5 +1,6 @@
 import os
 import secrets
+import logging
 
 
 secret_key = secrets.token_hex(16)  # 生成一个16字节的随机字符串作为密钥
@@ -17,3 +18,19 @@ class Config:
     SQLALCHEMY_DATABASE_URI = db_url
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_COMMIT_TEARDOWN = True
+
+
+def setup_logging():
+    """
+    Set up logging configuration for the Flask application.
+    """
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('app.log'),
+            logging.StreamHandler()
+        ]
+    )
+    # Suppress werkzeug logs
+    logging.getLogger('werkzeug').setLevel(logging.ERROR)
