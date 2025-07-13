@@ -62,5 +62,6 @@ class alg_blueprint:
         try:
             return send_from_directory(base_path, filename)
         except NotFound:
+            current_app.logger.warning(f"No file found to upload: {filename}")
             return "File not found", 404
 
