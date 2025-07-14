@@ -1,4 +1,5 @@
 import os
+import time
 import requests
 import unittest
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -20,7 +21,7 @@ class server_api:
         # headers = {'Content-Type': 'application/json'}
         # response = requests.post(url, data=json_data, headers=headers)
         print(response.text)  # 打印响应内容
-    
+
     # 上传 json 数据
     def post_json(self, json_data: dict):
         route = '/alg/alg2'
@@ -147,4 +148,7 @@ if __name__ == '__main__':
     j = {'name': 'zccxc5', 'aaa': 'dfd'}
     test.post_work(j)
     test.query_work()
-
+    time.sleep(10)  # 等待任务执行
+    j = {'name': 'zccxc1ex', 'aaa': 'dfd'}
+    test.post_work(j)
+    test.query_work()
