@@ -127,7 +127,7 @@ class Test_server_api(unittest.TestCase):
             test.post_img_list(img_list)
         except Exception as e:
             print(e)
-    
+
     def test_post_work(self):
         test = self.test
         data = {'name': 'zxc', 'aaa': 'dfd'}

@@ -11,7 +11,7 @@ class sqlite3_api:
         pass
 
     # 查询数据
-    @s_api.route("/sql")
+    @s_api.route("/queryall", methods=["GET", "POST"])
     def find_all_users():
         users = User.query.all()
         print(users)
@@ -26,14 +26,14 @@ class sqlite3_api:
         return "编号：{0}，用戶名：{1}，邮箱：{2}".format(*info)
 
     # 增加数据
-    @s_api.route("/add/<username>")
+    @s_api.route("/add/<username>", methods=["GET", "POST"])
     def add_user(username):
         new_user = User()
         new_user.username = username
         new_user.email = username + "@qq.com"
         db.session.add(new_user)
         db.session.commit()
-        return redirect("/")
+        return redirect("/sq/queryall")
 
     # 删除数据
     @s_api.route("/delete/<int:del_id>")
@@ -42,7 +42,7 @@ class sqlite3_api:
         if del_user is not None:
             db.session.delete(del_user)
             db.session.commit()
-        return redirect("/")
+        return redirect("/sq/queryall")
 
     @s_api.route("/update", methods=["GET", "POST"])
     def update():
