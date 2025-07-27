@@ -33,4 +33,4 @@ def setup_logging():
         ]
     )
     # Suppress werkzeug logs
-    logging.getLogger('werkzeug').setLevel(logging.ERROR)
+    logging.getLogger('werkzeug').setLevel(logging.INFO)

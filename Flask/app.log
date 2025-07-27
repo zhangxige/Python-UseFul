@@ -1,0 +1,77 @@
+2025-07-27 12:24:12,342 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-27 12:24:12,342 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-27 12:24:12,358 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-27 12:24:13,280 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 12:24:13,280 - werkzeug - INFO -  * Debugger PIN: 268-732-506
+2025-07-27 12:24:21,443 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:24:21] "[35m[1mOPTIONS /mid_process/land_list_info HTTP/1.1[0m" 500 -
+2025-07-27 12:25:19,037 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:25:19,037 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:25:19,385 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-27 12:25:20,653 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 12:25:20,653 - werkzeug - INFO -  * Debugger PIN: 268-732-506
+2025-07-27 12:25:35,123 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:25:35] "[35m[1mOPTIONS /mid_process/land_list_info HTTP/1.1[0m" 500 -
+2025-07-27 12:26:28,518 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\flask\\templating.py', reloading
+2025-07-27 12:26:28,646 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\jinja2\\__init__.py', reloading
+2025-07-27 12:26:28,732 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\jinja2\\environment.py', reloading
+2025-07-27 12:26:28,773 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\werkzeug\\utils.py', reloading
+2025-07-27 12:26:28,795 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\werkzeug\\_internal.py', reloading
+2025-07-27 12:26:28,811 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\werkzeug\\datastructures\\structures.py', reloading
+2025-07-27 12:26:28,850 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\werkzeug\\datastructures\\mixins.py', reloading
+2025-07-27 12:26:29,470 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-27 12:26:30,481 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 12:26:30,493 - werkzeug - INFO -  * Debugger PIN: 268-732-506
+2025-07-27 12:26:36,814 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\flask\\helpers.py', reloading
+2025-07-27 12:26:36,868 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\werkzeug\\exceptions.py', reloading
+2025-07-27 12:26:36,911 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\anaconda3\\envs\\zxanaconda\\Lib\\site-packages\\werkzeug\\datastructures\\file_storage.py', reloading
+2025-07-27 12:26:37,734 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-27 12:26:38,749 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 12:26:38,767 - werkzeug - INFO -  * Debugger PIN: 268-732-506
+2025-07-27 12:27:19,135 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:19,135 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:19,436 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-27 12:27:20,526 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 12:27:20,529 - werkzeug - INFO -  * Debugger PIN: 268-732-506
+2025-07-27 12:27:20,791 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:20,791 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:21,013 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:21,014 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:21,020 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:21,200 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:21,201 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:21,203 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:27:21,700 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-27 12:27:22,787 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 12:27:22,787 - werkzeug - INFO -  * Debugger PIN: 268-732-506
+2025-07-27 12:27:31,102 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:27:31] "[35m[1mOPTIONS /mid_process/land_list_info HTTP/1.1[0m" 500 -
+2025-07-27 12:28:04,760 - werkzeug - INFO -  * Detected change in 'C:\\Users\\zhangxige\\Desktop\\xi\\vs_git_code\\Python-UseFul\\Flask\\app\\views\\Mid_Process.py', reloading
+2025-07-27 12:28:05,512 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-27 12:28:06,448 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 12:28:06,466 - werkzeug - INFO -  * Debugger PIN: 268-732-506
+2025-07-27 12:32:18,502 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:32:18] "[35m[1mGET /mid_process/land_list_info HTTP/1.1[0m" 500 -
+2025-07-27 12:32:19,084 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:32:19] "GET /mid_process/land_list_info?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-27 12:32:19,086 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:32:19] "GET /mid_process/land_list_info?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-27 12:32:19,144 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:32:19] "GET /mid_process/land_list_info?__debugger__=yes&cmd=resource&f=console.png&s=tR2KzkY25qtsJC0x9QAD HTTP/1.1" 200 -
+2025-07-27 12:32:19,259 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:32:19] "GET /mid_process/land_list_info?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-27 12:33:41,959 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-27 12:33:41,959 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-27 12:33:41,975 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-07-27 12:33:42,856 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 12:33:42,872 - werkzeug - INFO -  * Debugger PIN: 268-732-506
+2025-07-27 12:33:51,025 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:33:51] "[35m[1mGET /mid_process/land_list_info HTTP/1.1[0m" 500 -
+2025-07-27 12:33:51,561 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:33:51] "[36mGET /mid_process/land_list_info?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-27 12:33:51,561 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:33:51] "[36mGET /mid_process/land_list_info?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-27 12:33:51,594 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:33:51] "GET /mid_process/land_list_info?__debugger__=yes&cmd=resource&f=console.png&s=YM8zedPJGcp7Pznv13OE HTTP/1.1" 200 -
+2025-07-27 12:33:51,688 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:33:51] "[36mGET /mid_process/land_list_info?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-07-27 12:34:00,985 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:00] "[35m[1mGET /mid_process/ HTTP/1.1[0m" 500 -
+2025-07-27 12:34:01,058 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:01] "GET /mid_process/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-27 12:34:01,098 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:01] "GET /mid_process/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-27 12:34:01,170 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:01] "GET /mid_process/?__debugger__=yes&cmd=resource&f=console.png&s=YM8zedPJGcp7Pznv13OE HTTP/1.1" 200 -
+2025-07-27 12:34:01,231 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:01] "GET /mid_process/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-27 12:34:06,125 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:06] "[35m[1mGET /mid_process/ HTTP/1.1[0m" 500 -
+2025-07-27 12:34:06,194 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:06] "[36mGET /mid_process/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-27 12:34:06,218 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:06] "[36mGET /mid_process/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-27 12:34:06,249 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:06] "[36mGET /mid_process/?__debugger__=yes&cmd=resource&f=console.png&s=YM8zedPJGcp7Pznv13OE HTTP/1.1[0m" 304 -
+2025-07-27 12:34:51,494 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:51] "GET /alg/alg1 HTTP/1.1" 200 -
+2025-07-27 12:34:56,367 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:34:56] "[33mGET / HTTP/1.1[0m" 404 -

@@ -63,4 +63,3 @@ class alg_blueprint:
         except NotFound:
             current_app.logger.warning(f"No file found to upload: {filename}")
             return "File not found", 404
-
