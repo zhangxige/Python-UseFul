@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# from flask import request, jsonify
+from flask import request, jsonify
 from flask import Blueprint
 
 
@@ -18,7 +18,7 @@ class mid_process_api:
     @mid.after_request
     def after_request(response):
         # print('After request')
-        pass
+        return response
 
     @mid.teardown_request
     def teardown_request(exception):
@@ -31,5 +31,6 @@ class mid_process_api:
 
     @mid.route('/land_list_info', methods=['GET', 'POST'])
     def land_list_info():
-        print('Received POST request with JSON data')
+        data = request.json  # 这是一个字典类型，可以直接访问键值对
+        print(data)
         return 'Hello, World!'
