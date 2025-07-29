@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import request, jsonify
+from flask import request
 from flask import Blueprint
 
 
@@ -33,4 +33,4 @@ class mid_process_api:
     def land_list_info():
         data = request.json  # 这是一个字典类型，可以直接访问键值对
         print(data)
-        return 'Hello, World!'
+        return 'recieved data: {}'.format(data)
