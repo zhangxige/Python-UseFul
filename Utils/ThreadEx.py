@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+    ThreadEx.py
+    A thread management utility for Windows, providing advanced control over
+    threads.
+    https://blog.csdn.net/sunxiaocongming/article/details/149659717
+"""
 import inspect
 import threading
 import ctypes
