@@ -97,42 +97,60 @@ class ThreadSafeList:
             self._list.reverse()
 
 
-# Thread control class for managing thread states
-class ThreadContrl:
+class PausableThread(threading.Thread):
     def __init__(self):
-        self._event = threading.Event()
+        super().__init__()
+        self._pause_event = threading.Event()
+        self._pause_event.set()  # 开始时设置为非暂停状态
+        self._running = threading.Event()
+        self._running.set()  # 开始时设置为运行状态
+        self._restart = threading.Event()
 
     def run(self):
-        self._event.set()
-        for _ in range(10):
-            if not self._event.is_set():
-                break
-            print("Thread is running...")
-            time.sleep(10)
+        while self._running.is_set():
+            self._pause_event.wait()  # 等待直到被暂停或重启事件触发
+            if self._restart.is_set():
+                self._restart.clear()  # 清除重启事件标志
+                continue  # 重新开始循环
+            while not self._pause_event.is_set():
+                # 这里放置你的任务代码
+                print("线程正在运行...")
+                time.sleep(1)  # 模拟任务执行时间
+            if not self._running.is_set():
+                break  # 如果线程应该停止，则退出循环
+
+    def pause(self):
+        self._pause_event.clear()  # 设置暂停事件为False，暂停线程
+
+    def resume(self):
+        self._pause_event.set()  # 设置暂停事件为True，继续线程
 
     def stop(self):
-        self._event.clear()
+        self._running.clear()  # 设置运行事件为False，停止线程
+        self._pause_event.set()  # 确保线程在停止前可以被正确暂停（如果有必要）
+        self.join()  # 等待线程真正停止
 
     def restart(self):
-        self.stop()
-        self.run()
-
-    def hangup(self):
-        self._event.wait()
-
-    def is_running(self):
-        return self._event.is_set()
+        self._restart.set()  # 设置重启事件为True，在下一个循环中重新开始
+        self._pause_event.set()  # 确保线程可以被重新启动
+        self._running.set()  # 确保线程处于运行状态
 
 
-# Example usage of ThreadSafeDict
+# 使用示例
 if __name__ == "__main__":
-    ts_dict = ThreadSafeDict()
-    ts_dict['key1'] = 'value1'
-    print(ts_dict['key1'])  # Output: value1
-    ts_dict['key2'] = 'value2'
-    print(len(ts_dict))  # Output: 2
-    if 'key1' in ts_dict:
-        print("key1 exists")
-    del ts_dict['key1']
-    print(ts_dict.get('key1', 'default'))  # Output: default
-    print(ts_dict.get('key2'))  # Output: value2
+    thread = PausableThread()
+    thread.start()
+    time.sleep(5)  # 等待线程运行一段时间
+    print("暂停线程")
+    thread.pause()  # 暂停线程
+    time.sleep(3)  # 等待一段时间后继续
+    print("继续线程")
+    thread.resume()  # 继续线程
+    time.sleep(5)  # 等待线程运行一段时间后停止
+    print("停止并重启线程")
+    thread.stop()  # 停止线程
+    thread = PausableThread()  # 创建新的线程实例（如果要重新启动）
+    thread.start()  # 重新启动线程（实际上是新的实例）
+    time.sleep(5)  # 等待线程运行一段时间后停止并退出程序
+    print("停止线程")
+    thread.stop()  # 停止线程（对新实例）
