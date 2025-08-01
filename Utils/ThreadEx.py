@@ -59,20 +59,30 @@ class ThreadEx(threading.Thread):
                  daemon=True):
         """
              self.tid: 系统级别的id 这个 类创建的 对象
-                 python thread类对象，通常也称为 线程id 他是 thread操作的句柄对象。 这里我在执行thread对象时候执行获取了线程在系统里面的id
-                 然后通过系统api 根据 系统里面的线程id来控制线程的 暂停 停止 继续，结束 。这里对于默认的Thread 线程类的继承 完全继承了6个初始化对象
-                 的参数： group=None, target=None, name=None, args=(), kwargs=None, *, daemon=None
+                 python thread类对象，通常也称为 线程id 他是 thread操作的句柄对象。
+                 这里我在执行thread对象时候执行获取了线程在系统里面的id
+                 然后通过系统api 根据 系统里面的线程id来控制线程的 暂停 停止 继续，结束。
+                 这里对于默认的Thread 线程类的继承 完全继承了6个初始化对象
+                 的参数：
+                 group=None, target=None, name=None, args=(), kwargs=None, *,
+                 daemon=None
             通过 self.status  记录线程的状态。
-            这个类适合 创建 操作 单个线程， 如果需要多个线程同时操作，可以使用 ThreadManage 类来实现更高级的功能。
+            这个类适合 创建 操作 单个线程， 如果需要多个线程同时操作，
+            可以使用 ThreadManage 类来实现更高级的功能。
         """
         if os.name != 'nt':
             raise NotImplementedError("当前仅支持 Windows 平台")
- 
+
         self.status = ''
         self.target_function = target
         self.tid = None
         #  守护线程。  daemon=True
-        super().__init__(target=self.__target_function, args=args, kwargs=kwargs, group=group, name=name, daemon=daemon)
+        super().__init__(target=self.__target_function,
+                         args=args,
+                         kwargs=kwargs,
+                         group=group,
+                         name=name,
+                         daemon=daemon)
         # 启动线程 默认True
         if start:
             self.status = 'running'
@@ -81,7 +91,8 @@ class ThreadEx(threading.Thread):
             except Exception as e:
                 self.status = 'stopped'
                 print(f'线程start 操作出现错误：{e}')
-        # 如果不想直接启动线程，也可以仅创建一个线程对象，返回 被继承后的 Thread 对象， 拥有全部Thread原本方法和属性 和新增的方法。
+        # 如果不想直接启动线程，也可以仅创建一个线程对象，
+        # 返回 被继承后的 Thread 对象， 拥有全部Thread原本方法和属性 和新增的方法。
 
     def suspend(self):
         """ 调用系统api 暂停线程"""
@@ -109,7 +120,9 @@ class ThreadEx(threading.Thread):
 
     def stop(self, try_times=1, message=''):
         """ 强制停止线程 返回布尔值 和 错误信息"""
-        result = self.__class__.stop_thread(self.tid, try_times=try_times, message=message )
+        result = self.__class__.stop_thread(self.tid,
+                                            try_times=try_times,
+                                            message=message)
         if result:
             self.status = 'stopped'
         return result
@@ -132,7 +145,8 @@ class ThreadEx(threading.Thread):
 
     def __target_function(self, *args, **kwargs):
         """
-            里用__target_function 调用 target_function 在调用之前这样不需要修改 原版的 thread库，可以再调用之前。
+            里用__target_function 调用 target_function 在调用之前这样不需要修改
+            原版的 thread库，可以再调用之前。
             # 准确获取到系统级的 线程id
             这里完全复刻了 子类的 参数传递。
         """
@@ -150,7 +164,10 @@ class ThreadEx(threading.Thread):
             tid = ctypes.c_long(tid)
             if not inspect.isclass(exc_type):
                 exc_type = type(exc_type)
-            res = ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, ctypes.py_object(exc_type))
+            res = ctypes.pythonapi.PyThreadState_SetAsyncExc(
+                tid,
+                ctypes.py_object(exc_type)
+            )
             if res == 0:
                 raise ValueError("invalid thread id")
             elif res != 1:
@@ -197,11 +214,23 @@ class ThreadManage:
         pass
 
     @classmethod
-    def create_thread(cls, target, start=True, args=(), kwargs=None, group=None,  name=None, daemon=True):
+    def create_thread(cls,
+                      target,
+                      start=True,
+                      args=(),
+                      kwargs=None,
+                      group=None,
+                      name=None,
+                      daemon=True):
         cls.cleanup()
         with cls._lock:
-            thread_id = ThreadEx(target=target, start=start, args=args,
-                                kwargs=kwargs, group=group, name=name, daemon=daemon)
+            thread_id = ThreadEx(target=target,
+                                 start=start,
+                                 args=args,
+                                 kwargs=kwargs,
+                                 group=group,
+                                 name=name,
+                                 daemon=daemon)
             ThreadManage.thread_list.append(thread_id)  # 添加到全局列表
             return thread_id
 
@@ -241,7 +270,7 @@ class ThreadManage:
     @classmethod
     def cleanup(cls):
         with cls._lock:
-            cls.thread_list = [t for t in cls.thread_list 
+            cls.thread_list = [t for t in cls.thread_list
                                if t.status != 'stopped']
 
     @classmethod
@@ -254,7 +283,7 @@ class ThreadManage:
 
 def test_worker(startwith):
     count = 0
-    for ii in range(5):
+    for ii in range(10):
         print(f"{startwith} 运行: {count}")
         count += 1
         time.sleep(1)
@@ -273,17 +302,18 @@ if __name__ == '__main__':
     print("暂停线程 1")
     ThreadManage.suspend_all()  # 暂停
 
-    ThreadManage.stop(t)
+    # ThreadManage.stop(t)
     time.sleep(3)
-    print("恢复线程")
-    # t.resume()   # 恢复
+    # ThreadManage.resume_all()  # 恢复
+    # print("恢复线程")
+    t.resume()   # 恢复
 
-    time.sleep(3)
-    t.stop()
-    count = 0
-    while True:
-        print(f"主线程： Running: {count}")
-        print('t.status=', t.status)
-        # print('t.get_status()=', t2.get_status())
-        count += 1
-        time.sleep(1)
+    time.sleep(30)
+    # t.stop()
+    # count = 0
+    # while True:
+    #     print(f"主线程： Running: {count}")
+    #     print('t.status=', t.status)
+    #     # print('t.get_status()=', t2.get_status())
+    #     count += 1
+    #     time.sleep(1)
