@@ -3,12 +3,14 @@
 <p align = "center"> 
 <img src="../Image/python_uv.png" ”height = “200 width="400" >
 </p>
-> [!IMPORTANT]An extremely fast Python package and project manager, written in Rust.
+> [!IMPORTANT]
+> - An extremely fast Python package and project manager, written in Rust.
  
 <p align = "center"> 
 <img src="../Image/efficiont.png" ”height = “200 width="400" >
 </p>
-> [!TIPS]Figure for efficient.
+> [!TIPS]
+> - Figure for efficient.
 
 - uv python install: Install Python versions.
 - uv python list: View available Python versions.
@@ -41,3 +43,6 @@ Executing standalone Python scripts, e.g., example.py.
 pip freeze > requirements.txt
 ```
 2. uv env package
+```shell
+uv pip inastall requirements.txt
+```
