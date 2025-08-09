@@ -4,9 +4,11 @@
 <img src="../Image/python_uv.png" ”height = “200 width="400" >
 </p>
 > [!IMPORTANT]An extremely fast Python package and project manager, written in Rust.
-
-
-Installing and managing Python itself.
+ 
+<p align = "center"> 
+<img src="../Image/efficiont.png" ”height = “200 width="400" >
+</p>
+> [!TIPS]Figure for efficient.
 
 - uv python install: Install Python versions.
 - uv python list: View available Python versions.
@@ -23,6 +25,7 @@ Executing standalone Python scripts, e.g., example.py.
 ## Projects
 
 - uv init: Create a new Python project.
+1. uv init --package example-pkg
 - uv add: Add a dependency to the project.
 - uv remove: Remove a dependency from the project.
 - uv sync: Sync the project's dependencies with the environment.
@@ -31,3 +34,10 @@ Executing standalone Python scripts, e.g., example.py.
 - uv tree: View the dependency tree for the project.
 - uv build: Build the project into distribution archives.
 - uv publish: Publish the project to a package index.
+
+## Change pip env to uv
+1. freeze env package
+```shell
+pip freeze > requirements.txt
+```
+2. uv env package

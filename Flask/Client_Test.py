@@ -119,11 +119,10 @@ class Test_server_api(unittest.TestCase):
 
     def test_post_images(self):
         test = self.test
-        test_dir = r'./test_dir/'
+        test_dir = r'./test_dir'
         try:
             img_list = [os.path.join(test_dir, it)
-                        for it in os.listdir(test_dir)
-                        if it.endswith('.jpg')]
+                        for it in os.listdir(test_dir)]
             test.post_img_list(img_list)
         except Exception as e:
             print(e)
