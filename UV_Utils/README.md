@@ -37,6 +37,14 @@ Executing standalone Python scripts, e.g., example.py.
 - uv build: Build the project into distribution archives.
 - uv publish: Publish the project to a package index.
 
+## Tools
+
+uvx / uv tool run: Run a tool in a temporary environment.
+- uv tool install: Install a tool user-wide.
+- uv tool uninstall: Uninstall a tool.
+- uv tool list: List installed tools.
+- uv tool update-shell: Update the shell to include tool executables.
+
 ## Change pip env to uv
 1. freeze env package
 ```shell
