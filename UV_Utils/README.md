@@ -45,6 +45,17 @@ uvx / uv tool run: Run a tool in a temporary environment.
 - uv tool list: List installed tools.
 - uv tool update-shell: Update the shell to include tool executables.
 
+
+## 实用工具
+管理和检查 uv 的状态，例如缓存、存储目录或执行自我更新：
+
+- uv cache clean: 清除缓存条目
+- uv cache prune: 清除过期的缓存条目
+- uv cache dir: 显示 uv 缓存目录路径
+- uv tool dir: 显示 uv 工具目录路径
+- uv python dir: 显示 uv 安装的 Python 版本路径
+- uv self update: 将 uv 更新至最新版本
+
 ## Change pip env to uv
 1. freeze env package
 ```shell
