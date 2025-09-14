@@ -65,3 +65,5 @@ pip freeze > requirements.txt
 ```shell
 uv pip inastall requirements.txt
 ```
+
+[参考文档](https://uv.doczh.com/)
