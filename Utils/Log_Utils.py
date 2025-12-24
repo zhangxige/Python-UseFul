@@ -160,6 +160,9 @@ class MyLogs(Singleton):
 
 
 if __name__ == '__main__':
+    # 如果实例化日志对象，同时记录到文件夹和控制台
+    # x = MyLogs()
+
     MyLogs.log("debug", "Executing step 3 of the algorithm")
     MyLogs.log("info", "Server started on port")
     MyLogs.log("warning", "Invalid input provided, using default values")
@@ -173,4 +176,4 @@ if __name__ == '__main__':
 
     A(1, 1)
 
-    MyLogs.log_clear()
+    # MyLogs.log_clear()
