@@ -266,6 +266,12 @@ NetworkX是一个用Python语言开发的库，它提供了丰富的工具，用
 [uv](https://uv.doczh.com/)一个用 Rust 编写的极速 Python 包和项目管理工具。非常好用的环境管理工具。
 </details>
 
+<details open>
+<summary>zensical</summary>
+
+[zensical](https://zensical.org/)开源的静态网页构建枸橘，方便、简单、实用。
+</details>
+
 ### 记在最后:
 - 项目代码管理：以 git 方式管理，同步代码更方便。[git代码至Github](https://blog.csdn.net/qq_24990383/article/details/127608245 "CSDN")
 - 关于[markdown](https://www.markdownguide.org/ "markdown官网")：.md 是一个很方便的结构说明文档，项目说明中需要采用。
