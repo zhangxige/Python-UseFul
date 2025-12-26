@@ -75,12 +75,12 @@ class MyLogs(Singleton):
 
         )
 
-    # @staticmethod
-    # def _debug_filter(record):
-    #     """自定义过滤器函数，仅输出 DEBUG 级别的日志"""
-    #     if record["level"].name == MyLogs.ini_data["filter_level"]:
-    #         return True
-    #     return False
+    @staticmethod
+    def _debug_filter(record):
+        """自定义过滤器函数，仅输出 DEBUG 级别的日志"""
+        if record["level"].name == MyLogs.ini_data["filter_level"]:
+            return True
+        return False
 
     @classmethod
     def log(cls, level: str, msg: str):
@@ -176,4 +176,5 @@ if __name__ == '__main__':
 
     A(1, 1)
 
+    # 清理日志文件夹
     # MyLogs.log_clear()
