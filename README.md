@@ -269,7 +269,14 @@ NetworkX是一个用Python语言开发的库，它提供了丰富的工具，用
 <details open>
 <summary>zensical</summary>
 
-[zensical](https://zensical.org/)开源的静态网页构建枸橘，方便、简单、实用。
+[zensical](https://zensical.org/)开源的静态网页构建工具，方便、简单、实用。
+</details>
+
+<details open>
+<summary>pillow_heif </summary>
+
+> [pillow_heif](https://github.com/bigcat88/pillow_heif) 高效处理heic/heif/avif 等图片格式
+
 </details>
 
 ### 记在最后:
