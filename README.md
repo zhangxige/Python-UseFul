@@ -206,9 +206,17 @@ built on top of the Python programming language.
 <summary>Flask</summary>
 
 [Flask](https://flask.palletsprojects.com/en/3.0.x/ "web服务端框架")：
-Flask是一个使用Python编写的轻量级Web应用框架。它被设计为易于使用和扩展，使得开发者可以快速搭建基本的Web应用，同时也能够构建复杂的系统。
+FlasFastAPIk是一个使用Python编写的轻量级Web应用框架。它被设计为易于使用和扩展，使得开发者可以快速搭建基本的Web应用，同时也能够构建复杂的系统。
 
 官方文档比较难懂，可以参考[Flask中文站](https://flask.github.net.cn/)
+
+</details>
+
+<details open>
+<summary>FastAPI</summary>
+
+[FastAPI](https://github.com/fastapi/fastapi "web服务端框架")：
+FastAPI 从2025年开始，增长迅速，类型检查严格的框架，自动生成API的DOC文档，未来可期。
 
 </details>
 
