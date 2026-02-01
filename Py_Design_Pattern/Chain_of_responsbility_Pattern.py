@@ -114,16 +114,15 @@ def main():
 
 
 if __name__ == "__main__":
-    # import doctest
+    import doctest
+    doctest.testmod(optionflags=doctest.ELLIPSIS)
 
-    # doctest.testmod(optionflags=doctest.ELLIPSIS)
+    # h0 = ConcreteHandler0()
+    # h1 = ConcreteHandler1()
+    # h2 = ConcreteHandler2(FallbackHandler())
+    # h0.successor = h1
+    # h1.successor = h2
 
-    h0 = ConcreteHandler0()
-    h1 = ConcreteHandler1()
-    h2 = ConcreteHandler2(FallbackHandler())
-    h0.successor = h1
-    h1.successor = h2
-
-    requests = [2, 5, 14, 22, 18, 3, 35, 27, 20]
-    for request in requests:
-        h0.handle(request)
+    # requests = [2, 5, 14, 22, 18, 3, 35, 27, 20]
+    # for request in requests:
+    #     h0.handle(request)

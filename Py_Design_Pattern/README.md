@@ -69,3 +69,12 @@ The _cat's meow_.
         isgoing<strong>well<strong>.
     </p>
 </blockquote>
+
+### 执行doctest
+```script
+# 执行文档测试
+python -m doctest -v Catolog.py
+
+# 同样的测试
+python -m doctest -v Chain_of responsbility_Pattern.py
+```
