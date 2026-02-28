@@ -149,10 +149,28 @@ some code ...
 
 <details open>
 <summary>
+sqlite3
+</summary>
+
+[sqlite3](https://sqlite.org/index.html): SQLite 是一个由 C 语言编写的库，它提供了一个轻量级的基于磁盘的数据库，不需要单独开一个数据库服务器，并允许使用 SQL 语句访问数据库。
+
+判断是否使用 SQLite 的标准：
+
+1. 数据与应用分离：不适用 SQLite
+2. 要求高并发性：不适用 SQLite
+3. 大数据：不适用 SQLite
+- 否则，选择 SQLite
+
+</details>
+
+<details open>
+<summary>
 streamlit
 </summary>
 
 [streamlit](https://streamlit.io/): A fast way to build and share data apps.Streamlit is an open-source Python framework for data scientists and AI/ML engineers to deliver interactive data apps – in only a few lines of code.
+
+</details>
 
 <details open>
 <summary>
