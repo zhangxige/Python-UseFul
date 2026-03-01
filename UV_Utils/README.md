@@ -66,4 +66,14 @@ pip freeze > requirements.txt
 uv pip inastall requirements.txt
 ```
 
+3 update 'httpx' package
+```shell
+uv sync --upgrade-package httpx
+```
+
+4 update all packages
+```shell
+uv sync --upgrade
+```
+
 [参考文档](https://uv.doczh.com/)
