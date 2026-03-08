@@ -1,2 +1,13 @@
-loguru==0.7.0
-tqdm==4.64.1
+click==8.3.1
+colorama==0.4.6
+deepmerge==2.0
+loguru==0.7.3
+Markdown==3.10.1
+Pygments==2.19.2
+pymdown-extensions==10.20.1
+PyYAML==6.0.3
+ruff==0.12.10
+tomli==2.4.0
+uv==0.10.6
+win32_setctime==1.2.0
+zensical==0.0.20
