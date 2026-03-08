@@ -3,6 +3,7 @@ import queue
 import time
 from typing import Callable, Dict, List
 
+
 class ThreadSafePubSub:
     def __init__(self):
         # 主题注册表：key=主题名，value=订阅者列表（每个订阅者是一个消费函数）
@@ -86,16 +87,19 @@ class ThreadSafePubSub:
             thread.join(timeout=2)
         print("所有消费线程已停止")
 
+
 # ---------------------- 测试示例 ----------------------
 def subscriber1(topic: str, message):
     """订阅者1：处理消息"""
     print(f"[订阅者1] 收到 {topic} 消息: {message} (线程: {threading.current_thread().name})")
     time.sleep(0.5)  # 模拟处理耗时
 
+
 def subscriber2(topic: str, message):
     """订阅者2：处理消息"""
     print(f"[订阅者2] 收到 {topic} 消息: {message} (线程: {threading.current_thread().name})")
     time.sleep(0.3)  # 模拟处理耗时
+
 
 if __name__ == "__main__":
     # 初始化线程安全的 Pub/Sub 实例

@@ -136,21 +136,70 @@ class PausableThread(threading.Thread):
         self._running.set()  # 确保线程处于运行状态
 
 
-# 使用示例
+# # 使用示例
+# if __name__ == "__main__":
+#     thread = PausableThread()
+#     thread.start()
+#     time.sleep(5)  # 等待线程运行一段时间
+#     print("暂停线程")
+#     thread.pause()  # 暂停线程
+#     time.sleep(3)  # 等待一段时间后继续
+#     print("继续线程")
+#     thread.resume()  # 继续线程
+#     time.sleep(5)  # 等待线程运行一段时间后停止
+#     print("停止并重启线程")
+#     thread.stop()  # 停止线程
+#     thread = PausableThread()  # 创建新的线程实例（如果要重新启动）
+#     thread.start()  # 重新启动线程（实际上是新的实例）
+#     time.sleep(5)  # 等待线程运行一段时间后停止并退出程序
+#     print("停止线程")
+#     thread.stop()  # 停止线程（对新实例）
+
+ 
+# 定义一个MyThread.py线程类
+class MyThread(threading.Thread):
+    def __init__(self, func, args=()):
+        super(MyThread, self).__init__()
+        self.func = func
+        self.args = args
+    def run(self):
+        time.sleep(2)
+        self.result = self.func(*self.args)
+    def get_result(self):
+        threading.Thread.join(self)  # 等待线程执行完毕
+        try:
+            return self.result
+        except Exception:
+            return None
+ 
+#获取多线程return返回值的测试方法
+def admin(number):
+    uiu = number
+    for i in range(10):
+        uiu = uiu+i
+    return uiu
+ 
 if __name__ == "__main__":
-    thread = PausableThread()
-    thread.start()
-    time.sleep(5)  # 等待线程运行一段时间
-    print("暂停线程")
-    thread.pause()  # 暂停线程
-    time.sleep(3)  # 等待一段时间后继续
-    print("继续线程")
-    thread.resume()  # 继续线程
-    time.sleep(5)  # 等待线程运行一段时间后停止
-    print("停止并重启线程")
-    thread.stop()  # 停止线程
-    thread = PausableThread()  # 创建新的线程实例（如果要重新启动）
-    thread.start()  # 重新启动线程（实际上是新的实例）
-    time.sleep(5)  # 等待线程运行一段时间后停止并退出程序
-    print("停止线程")
-    thread.stop()  # 停止线程（对新实例）
+    #创建四个线程
+    more_th1 = MyThread(admin,(5,))
+    more_th2 = MyThread(admin,(10,))
+    more_th3 = MyThread(admin,(50,))
+    more_th4 = MyThread(admin,(78,))
+ 
+    #启动线程
+    more_th1.start()
+    more_th2.start()
+    more_th3.start()
+    more_th4.start()
+ 
+    #线程等待（即：等待四个线程都运行完毕，才会执行之后的代码）
+    more_th1.join()
+    more_th2.join()
+    more_th3.join()
+    more_th4.join()
+ 
+    #输出线程执行方法后的的返回值
+    print(more_th1.get_result())
+    print(more_th2.get_result())
+    print(more_th3.get_result())
+    print(more_th4.get_result())
