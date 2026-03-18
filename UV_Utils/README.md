@@ -76,4 +76,6 @@ uv sync --upgrade-package httpx
 uv sync --upgrade
 ```
 
+uv发展趋势越来越好，正在逐步被主流IDE所采纳。
+
 [参考文档](https://uv.doczh.com/)
