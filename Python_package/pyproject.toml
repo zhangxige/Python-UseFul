@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "myutils"
+version = "0.1.1"   
+authors = [
+  {name = "zhangxige", email = "daxuekanshijie@sina.cn"},
+]
+maintainers = [
+  {name = "zhangxige", email = "daxuekanshijie@sina.cn"}
+]
+description = "A simple Python utility package"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+]
+license = "GPL-3.0-or-later"

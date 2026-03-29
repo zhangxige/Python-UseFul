@@ -251,3 +251,5 @@ print(myutils.reverse_string("markdown"))
 - 适合企业项目、个人工具、开源库
 
 ---
+
+参考：[Python打包用户指南](https://packaging.pythonlang.cn/en/latest/guides/writing-pyproject-toml/)
