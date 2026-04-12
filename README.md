@@ -23,9 +23,19 @@
 >
 
 
-### 依赖库安装命令
+### 依赖库安装命令 通过 requirements.txt
 ```shell
+conda create env --name py310 python=3.10
+conda activate py310
 pip install -r requirements.txt
+```
+
+### 依赖库安装命令 通过 requirements.yml
+```shell
+### 导出
+conda env export > environment.yml
+### 导入
+conda env create --file environment.yml
 ```
 
 ### 举例:
