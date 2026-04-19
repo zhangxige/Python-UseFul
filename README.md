@@ -316,6 +316,13 @@ NetworkX是一个用Python语言开发的库，它提供了丰富的工具，用
 </details>
 
 
+<details open>
+<summary>pyloid </summary>
+
+> [pyloid](https://pyloid.com/) 把ui本地app与web结合在一起的库，支持vue/react，fastapi/flask等等一些列前后端框架，非常有意思。参考[pyloid-deepwiki](https://deepwiki.com/pyloid/pyloid/1-pyloid-overview)
+
+</details>
+
 [Pythhon 趋势](https://blog.jetbrains.com/zh-hans/pycharm/category/tutorials/) 一系列不错的文章，深受启发
 
 ### 记在最后:
