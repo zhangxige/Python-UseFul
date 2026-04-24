@@ -13,11 +13,18 @@
 > - Figure for efficient.
 
 - uv python install: Install Python versions.
+```shell
+// e.g.
+uv python install 3.11
+``` 
 - uv python list: View available Python versions.
 - uv python find: Find an installed Python version.
 - uv python pin: Pin the current project to use a - specific Python version.
+```shell
+// e.g.
+uv python pin 3.13
+``` 
 - uv python uninstall: Uninstall a Python version.
-
 Executing standalone Python scripts, e.g., example.py.
 
 - uv run: Run a script.
@@ -29,13 +36,23 @@ Executing standalone Python scripts, e.g., example.py.
 - uv init: Create a new Python project.
 1. uv init --package example-pkg
 - uv add: Add a dependency to the project.
+```shell
+// e.g.
+uv add numpy 
+``` 
 - uv remove: Remove a dependency from the project.
+```shell
+// e.g.
+uv remove numpy 
+``` 
 - uv sync: Sync the project's dependencies with the environment.
 - uv lock: Create a lockfile for the project's dependencies.
 - uv run: Run a command in the project environment.
 - uv tree: View the dependency tree for the project.
 - uv build: Build the project into distribution archives.
 - uv publish: Publish the project to a package index.
+
+
 
 ## Tools
 
@@ -57,6 +74,18 @@ uvx / uv tool run: Run a tool in a temporary environment.
 - uv self update: 将 uv 更新至最新版本
 
 ## Change pip env to uv
+
+0. install uv in powershell
+```shell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+// check uv env
+uv --version
+
+// self update
+uv self update
+```
+
 1. freeze env package
 ```shell
 pip freeze > requirements.txt
@@ -64,6 +93,8 @@ pip freeze > requirements.txt
 2. uv env package
 ```shell
 uv pip inastall requirements.txt
+// or
+uv add -r requirements.txt
 ```
 
 3 update 'httpx' package
