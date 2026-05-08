@@ -75,7 +75,7 @@ uvx / uv tool run: Run a tool in a temporary environment.
 
 ## Change pip env to uv
 
-0. install uv in powershell
+0. install uv in powershell(for windows)
 ```shell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
@@ -84,6 +84,9 @@ uv --version
 
 // self update
 uv self update
+
+// if (error) Caused by: invalid peer certificate: UnknownIssuer
+uv --native-tls --allow-insecure-host github.com self update
 ```
 
 1. freeze env package
