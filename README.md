@@ -323,6 +323,17 @@ NetworkX是一个用Python语言开发的库，它提供了丰富的工具，用
 
 </details>
 
+
+### Agent(2026)
+<details open>
+<summary>langchain </summary>
+
+> [langchain](https://langchain-doc.cn/)：LangChain是一个由大型语言模型 (LLM) 驱动的应用程序开发框架。
+
+</details>
+
+
+
 [Pythhon 趋势](https://blog.jetbrains.com/zh-hans/pycharm/category/tutorials/) 一系列不错的文章，深受启发
 
 ### 记在最后:
