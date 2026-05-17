@@ -332,6 +332,13 @@ NetworkX是一个用Python语言开发的库，它提供了丰富的工具，用
 
 </details>
 
+<details open>
+<summary>OpenCode </summary>
+
+> [OpenCode](https://opencode.ai/docs/zh-cn)：逐步开始用opencode帮助分析工程项目结构，提高工作效率。
+
+</details>
+
 
 
 [Pythhon 趋势](https://blog.jetbrains.com/zh-hans/pycharm/category/tutorials/) 一系列不错的文章，深受启发
