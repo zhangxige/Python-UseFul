@@ -1,5 +1,5 @@
 from flask import Flask
-from .config import Config, setup_logging
+from .config import get_config, setup_logging
 from flask_cors import CORS  # 解决跨域问题
 
 
@@ -10,7 +10,7 @@ def create_app():
     app = Flask(__name__, template_folder=TEMPLATE)
     CORS(app)  # 解决跨域问题
     setup_logging()  # 设置日志配置
-    app.config.from_object(Config)
+    app.config.from_object(get_config())
 
     # 注册蓝图（如果使用）
     from .model import db

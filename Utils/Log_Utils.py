@@ -5,22 +5,18 @@ import sys
 from functools import wraps
 from time import strftime
 from time import perf_counter
-# from base.singletonModel import Singleton
+from pathlib import Path
 from loguru import logger
+
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))
+from Py_Design_Pattern.Singleten import Singleton
 
 
 g_log_path = r"../logs"
 g_log_ini = r"../config/log_config.ini"
-
-
-# 单例模式
-class Singleton:
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
-        return cls._instance
 
 
 class MyLogs(Singleton):

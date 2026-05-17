@@ -4,6 +4,13 @@
     A thread management utility for Windows, providing advanced control over
     threads.
     https://blog.csdn.net/sunxiaocongming/article/details/149659717
+
+    安全警告：
+    - 本模块使用 PyThreadState_SetAsyncExc API 强制停止线程，
+      该 API 可能导致解释器崩溃、死锁或资源泄漏。
+    - 仅支持 Windows 平台，不可移植。
+    - 推荐优先使用 threading.Event 等标准库机制实现线程控制。
+    - 仅在确实需要外部强制终止线程时谨慎使用。
 """
 import inspect
 import threading

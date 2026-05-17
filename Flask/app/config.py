@@ -3,34 +3,50 @@ import secrets
 import logging
 
 
-secret_key = secrets.token_hex(16)  # 生成一个16字节的随机字符串作为密钥
-upload_dir = r'./uploads/'  # 设置上传文件的存储目录
-file_up_load_size = 16 * 1024 * 1024  # 设置最大上传大小，例如16MB
 basedir = os.path.abspath(os.path.dirname(__file__))
-db_url = 'sqlite:///' + os.path.join(basedir, 'test_db.db')
 
 
 class Config:
-    SECRET_KEY = secret_key
-    DEBUG = True
-    UPLOAD_FOLDER = upload_dir
-    MAX_CONTENT_LENGTH = file_up_load_size
-    SQLALCHEMY_DATABASE_URI = db_url
+    SECRET_KEY = os.getenv('SECRET_KEY', secrets.token_hex(16))
+    UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', r'./uploads/')
+    MAX_CONTENT_LENGTH = int(os.getenv('MAX_CONTENT_LENGTH', str(16 * 1024 * 1024)))
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        'DATABASE_URL',
+        'sqlite:///' + os.path.join(basedir, 'test_db.db')
+    )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class DevConfig(Config):
+    DEBUG = True
     SQLALCHEMY_COMMIT_TEARDOWN = True
 
 
+class ProdConfig(Config):
+    DEBUG = False
+    SQLALCHEMY_COMMIT_TEARDOWN = False
+
+
+config_map = {
+    'development': DevConfig,
+    'production': ProdConfig,
+}
+
+
+def get_config():
+    env = os.getenv('FLASK_ENV', 'development')
+    return config_map.get(env, DevConfig)
+
+
 def setup_logging():
-    """
-    Set up logging configuration for the Flask application.
-    """
+    env = os.getenv('FLASK_ENV', 'development')
+    level = logging.DEBUG if env == 'development' else logging.INFO
     logging.basicConfig(
-        level=logging.INFO,
+        level=level,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
             logging.FileHandler('app.log'),
             logging.StreamHandler()
         ]
     )
-    # Suppress werkzeug logs
     logging.getLogger('werkzeug').setLevel(logging.INFO)
