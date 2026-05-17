@@ -55,6 +55,6 @@ class sqlite3_api:
                 user.username = new_username
                 user.email = new_email
                 db.session.commit()
-            return redirect(url_for("update"))
+            return redirect(url_for("sq.update"))
         users = User.query.all()
         return render_template("update.html", users=users)

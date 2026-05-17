@@ -15,7 +15,7 @@ class db_api:
         password = request.form.get('password')
         print(user)
         print(password)
-        return render_template('test.html')
+        return render_template('test.html', username=user, password=password)
 
     @bp.route("/select", methods=("GET", "POST"))
     def select():
